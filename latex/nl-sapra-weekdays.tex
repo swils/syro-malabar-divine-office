@@ -1,0 +1,931 @@
+\documentclass[12pt,twoside,a5paper]{article}
+
+\usepackage[main=dutch]{babel}
+
+% https://tex.stackexchange.com/questions/769/how-can-i-create-documents-in-latex-using-a-calligraphic-first-letter-for-chapte
+% \usepackage{yfonts}
+
+% \usepackage{fontspec}
+% \setmainfont{ElstobD}
+
+% \usepackage{afterpage}
+% \usepackage{amsfonts}
+% \usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.5in,includefoot]{geometry}
+% \usepackage{mathtools}
+\usepackage{paracol}
+\usepackage[parfill]{parskip}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ifthen}
+\usepackage{fancyhdr}
+
+% Redefine title to be all caps
+\let\oldtitle\title
+\renewcommand{\title}[1]{\oldtitle{\MakeUppercase{#1}}}
+
+\setlength{\parindent}{0em}
+% Avoid "Overfull hbox" always... This necessary with the ultra tight
+% constraints on paracol. We get away with this, because the booklet will be
+% printed on A5 paper.
+\sloppy
+% Store the original parskip value
+\newlength{\origparskip}
+\setlength{\origparskip}{\parskip}
+% Define a new environment to reduce parskip
+\newenvironment{halfparskip}{
+  \setlength{\parskip}{0.5\origparskip}
+}{
+  \setlength{\parskip}{\origparskip}
+}
+
+\definecolor{dark-gray}{gray}{0.50}
+\definecolor{blood-red}{RGB}{102,0,0}
+
+\newcommand{\crs}{{\color{BrickRed} \maltese}}
+\newcommand{\cc}{{\color{BrickRed} \textbf{C.}}}
+\newcommand{\dd}{{\color{BrickRed} \textbf{D.}}}
+\newcommand{\vv}{{\color{BrickRed} \textbf{V.}}}
+\newcommand{\rr}{{\color{BrickRed} \textbf{R.}}}
+\newcommand{\NN}{{\color{BrickRed} \textbf{N.}}}
+\newcommand{\sep}{{\color{BrickRed} \textbf{$\star$}}}
+
+\newcommand{\liturgicalhint}[1]{{\color{BrickRed}\footnotesize\itshape{#1}}}
+\newcommand{\liturgicaloption}[1]{{\color{BrickRed}\textbf{#1}}}
+\newcommand{\qanona}[1]{{\liturgicalhint{Qanona.}} \emph{#1}}
+\newcommand{\psalm}[1]{\liturgicaloption{Psalm #1.}}
+
+\newenvironment{doublecols}{%
+  % \vspace{\parskip}%
+  \begin{paracol}{2}%
+    % \vspace{-\parskip}%
+    % \setlength{\columnseprule}{0.4pt}%
+    \setlength{\columnsep}{1.5em}%
+}{%
+  \end{paracol}%
+}
+
+\newenvironment{triplecols}{%
+  % \vspace{\parskip}%
+  \begin{paracol}{3}%
+    % \vspace{-\parskip}%
+    % \setlength{\columnseprule}{0.4pt}%
+    \setlength{\columnsep}{1.5em}%
+}{%
+  \end{paracol}%
+}
+
+\newcommand{\englishl}{\switchcolumn[0]*\selectlanguage{english}}%
+\newcommand{\englishc}[1]{\switchcolumn[#1]\selectlanguage{english}}%
+\newcommand{\dutchl}{\switchcolumn[0]*\selectlanguage{dutch}}%
+\newcommand{\dutchc}[1]{\switchcolumn[#1]\selectlanguage{dutch}}%
+
+\newcommand{\markedsection}[1]{\section*{#1}\markboth{#1}{}}
+\newcommand{\markedday}[1]{%
+  \liturgicaloption{#1}%
+  \markright{#1}%
+}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[LO,RE]{%
+  \footnotesize\emph{%
+    \ifthenelse{\equal{\rightmark}{}}{%
+      \nouppercase{\leftmark}%
+    }{%
+      \nouppercase{\leftmark} (\nouppercase{\rightmark})%
+    }%
+  }
+  % \footnotesize\emph{\nouppercase{\leftmark}}
+}
+\fancyfoot[LE,RO]{\thepage}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\begin{document}
+
+\title{Sapra - weekdagen}
+\author{}
+\date{}
+\maketitle
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\dd\ Laat ons bidden; vrede zij met ons. \cc\ Mijn Heer, alle schepselen die U hebt geschapen, die zijn gevormd door Uw wenk, die door Uw wil tot het bestaan zijn gekomen, komen vóór U, knielen, aanbidden, zingen, loven, vragen, smeken, bidden, verzoeken, belijden en verheerlijken U, want U bent de Oorzaak van (al) de wezens, en de Adem en ademhaling van onze levens, Heer van alles, Vader ...
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\markedsection{Psalmen}
+
+\begin{halfparskip}
+  \psalm{100} Juicht voor de Heer, alle landen.
+
+  \qanona{Gever van licht, Heer, U brengen wij eer.}
+
+  Juicht voor de Heer, alle landen. \sep\ Dient de Heer met vreugde.
+
+  Treedt voor Zijn aanschijn met gejubel! \sep\ Weet het wel: de Heer is God;
+
+  Hij heeft ons gemaakt, Hem behoren we toe, \sep\ Zijn volk zijn wij en de schapen van Zijn weide.
+
+  Treedt Zijn poorten met lofzang binnen, Zijn voorhoven met jubelzang, \sep\ brengt Hem hulde en zegent Zijn Naam.
+
+  Want goed is de Heer: eeuwig duurt Zijn barmhartigheid, \sep\ en Zijn trouw van geslacht tot geslacht.
+
+  Eer aan de Vader, de Zoon en de H. Geest. Vanaf het begin en in alle eeuwigheid, amen.
+
+  \liturgicalhint{Eerste vers.} Juicht voor de Heer, alle landen.
+
+  \qanona{Gever van licht, Heer, U brengen wij eer.}
+\end{halfparskip}
+
+\dd\ Laat ons bidden; vrede zij met ons.
+\cc\ Aan U, Heer, brengen wij eer en belijdenis, en bieden voortdurend aanbidding en dankzegging aan Uw levende en heilige Naam, want U bent de Heer en Schepper van alles, Vader ...
+
+\begin{halfparskip}
+  \psalm{91} Gij, die onder de hoede van de Allerhoogste leeft.
+
+  \qanona{Glorierijk is Uw sterke hoop, Christus onze Verlosser.}
+
+  Gij, die onder de hoede van de Allerhoogste leeft. \sep\ Die in de schaduw van de Almachtige woont,
+
+  zeg tot de Heer: ``Mijn toevlucht en burcht, \sep\ mijn God, op wie ik vertrouw.''
+
+  Want Hij zal u bevrijden uit de strik van de jagers, \sep\ van de verderfelijke pest.
+
+  Hij zal u met Zijn vleugels beschermen, en onder Zijn wieken zult gij vluchten; \sep\ een beukelaar en schild is Zijn trouw.
+
+  Geen verschrikking bij nacht zult gij vrezen, \sep\ geen pijl, die voortsnort bij dag.
+
+  Geen pest, die rondwaart in het duister, \sep\ geen verwoestend verderf op de middag.
+
+  Al vallen er duizend aan uw zijde, \sep\ en tienduizend aan uw rechterhand,
+
+  het zal tot u niet genaken. \sep\ Ja, met eigen ogen zult gij het zien, \sep\ en de vergelding der bozen aanschouwen.
+
+  Want de Heer is uw toevlucht, \sep\ de Allerhoogste hebt gij gemaakt tot uw schutse.
+
+  Geen ramp zal u genaken, \sep\ en geen plaag zal naderen tot uw tent.
+
+  Want Hij gaf over u een bevel aan Zijn engelen, \sep\ u te behoeden op al uw wegen.
+
+  Zij zullen u op de handen dragen, \sep\ opdat gij aan geen steen uw voet zoudt stoten.
+
+  Op slang en adder zult gij trappen, \sep\ leeuw en draak zult gij vertreden,
+
+  Omdat hij Mij aanhangt, zal Ik hem redden; \sep\ omdat hij Mijn Naam kent, hem beschermen. Hij zal Mij aanroepen, en Ik zal hem verhoren,
+
+  in de nood zal Ik met hem zijn, \sep\ Ik zal hem redden en hem eren.
+
+  Ik zal hem verzadigen met lengte van dagen, \sep\ en hem tonen Mijn heil.
+
+  Eer aan de Vader, de Zoon en de H. Geest. Vanaf het begin en in alle eeuwigheid, amen.
+
+  \liturgicalhint{Eerste vers.} Gij, die onder de hoede van de Allerhoogste leeft.
+
+  \qanona{Glorierijk is Uw sterke hoop, Christus onze Verlosser.}
+\end{halfparskip}
+
+\dd\ Laat ons bidden; vrede zij met ons. \cc\ Glorierijk, Heer, is het groot vertrouwen in Uw Godheid, en hoog en verheven is de wonderbare toevlucht van Uw Majesteit, en al wie in U hoopt, U vertrouwt, Uw heilige Naam aanroept, en U smeekt, ten allen tijde, zal niet beschaamd worden, Heer van alles, Vader...
+
+\begin{halfparskip}
+  \psalm{104,1--16} Loof, mijn ziel, de Heer!
+
+  \qanona{De glorie van de Heer zal voor altijd blijven bestaan.}
+
+  Loof, mijn ziel, de Heer. \sep\ Heer, mijn God, Gij zijt ontzaglijk groot; \sep\ met majesteit en luister zijt Gij omkleed,
+
+  met licht omhuld als met een mantel. \sep\ Als een tentdoek hebt Gij de hemelen uitgespreid,
+
+  op de wateren Uw opperzalen gebouwd. \sep\ Gij maakt de wolken tot Uw wagen, \sep\ en zweeft op de wieken der winden;
+
+  tot Uw boden maakt Gij de winden, \sep\ tot Uw knechten het verzengende vuur.
+
+  Gij hebt de aarde op haar pijlers gegrondvest; \sep\ in de eeuwen der eeuwen zal zij niet wankelen.
+
+  Met de oceaan als kleed hebt Gij haar bedekt; \sep\ boven de bergen stonden de wateren.
+
+  Bij Uw dreigen vluchtten zij heen, \sep\ ze sidderden voor de stem van Uw donder.
+
+  Bergen rezen en dalen zonken, \sep\ op de plaats, die Gij hun hadt bestemd.
+
+  Gij hebt een grens gesteld, \sep\ die zij niet overschrijden mogen, opdat ze niet opnieuw de aarde bedekken.
+
+  Gij beveelt de bronnen in de beken te vloeien, \sep\ die tussen de bergen stromen;
+
+  Zij laven alle dieren van het veld; \sep\ de woudezels lessen hun dorst.
+
+  Daar nestelen de vogels van de hemel, \sep\ en doen er hun lied in de takken weerklinken.
+
+  Vanuit Uw zalen besproeit Gij de bergen, \sep\ met de vrucht van Uw werken wordt de aarde verzadigd.
+
+  Gij laat voor het vee het gras ontspruiten, \sep\ en het kruid tot nut van de mens,
+
+  Opdat hij uit de aarde brood zal verwekken, \sep\ en wijn, die het hart van de mens verblijdt.
+
+  De bomen van de Heer worden verzadigd.
+
+  \liturgicalhint{Qanona, geen Eeer aan:} De glorie van de Heer zal voor altijd blijven bestaan.
+\end{halfparskip}
+
+\begin{halfparskip}
+  \psalm{113} Looft, gij dienaren van de Heer.
+
+  \qanona{Glorie aan Hem die het licht heeft geschapen.}
+
+  De Naam van de Heer zij geprezen, \sep\ en nu en tot in eeuwigheid.
+
+  Van het rijzen der zon tot haar dalen, \sep\ zij de Naam van de Heer geprezen.
+
+  Hoogverheven is de Heer boven alle volken; \sep\ boven de hemelen schittert Zijn glorie.
+
+  Wie is gelijk aan de Heer, onze God, \sep\ die troont in de hoge, en neerziet \sep\ op hemel en aarde?
+
+  Hij heft de behoeftige op uit het stof, \sep\ uit het slijk verheft Hij de arme,
+
+  Om hem te plaatsen onder de vorsten, \sep\ onder de vorsten van Zijn volk.
+
+  Hij doet de onvruchtbare wonen in haar huis, \sep\ als blijde moeder van kinderen.
+
+  \liturgicalhint{geen Eer aan of qanona}
+\end{halfparskip}
+
+\liturgicalhint{Pss 93; 148-150; 117 onder één Eer aan de Vader.}
+
+\begin{halfparskip}
+  \psalm{93}
+
+  De Heer is Koning, met majesteit bekleed; \sep\ bekleed is de Heer met macht, Hij heeft Zich omgord;
+
+  Hij heeft het aardrijk bevestigd, \sep\ dat niet zal wankelen.
+
+  Hecht staat Uw troon van ouds; \sep\ Gij zijt van eeuwigheid.
+
+  De stromen verheffen, o Heer, \sep\ de stromen verheffen hun stem, \sep\ de stromen verheffen hun bruisen.
+
+  Maar boven de stem der wijde wateren, \sep\ boven de branding der zee \sep\ is machtig de Heer in de hoge.
+
+  Betrouwbaar bovenmate zijn Uw getuigenissen; \sep\ Uw huis, Heer, past heiligheid \sep\ in lengte van dagen.
+\end{halfparskip}
+
+\begin{halfparskip}
+  \psalm{148} Looft de Heer in de hemel, \sep\ looft Hem in de hoge.
+
+  Looft Hem al Zijn engelen, \sep\ looft Hem, al Zijn legerscharen!
+
+  Looft Hem zon en maan, \sep\ looft Hem alle fonkelende sterren!
+
+  Looft Hem hemelen der hemelen, \sep\ en gij wateren boven de hemel!
+
+  Dat zij de Naam van de Heer loven, want Hij gebood, en ze waren geschapen;
+
+  En Hij heeft ze gevestigd voor immer en eeuwig: \sep\ Hij gaf een wet, die niet zal vergaan.
+
+  Looft de Heer op aarde, \sep\ monsters en alle diepten der zee,
+
+  Vuur, hagel, sneeuw en nevel, \sep\ stormwind, die Zijn bevel volbrengt,
+
+  Bergen en alle heuvelen, \sep\ vruchtbomen en alle ceders,
+
+  Wilde dieren en alle vee, \sep\ kruipende dieren en gevleugelde vogels,
+
+  Koningen der aarde en alle volkeren, \sep\ vorsten en alle rechters op aarde,
+
+  Jongelingen zowel als maagden, \sep\ grijsaards tezamen met kinderen:
+
+  Dat zij de Naam van de Heer prijzen,
+
+  want Zijn Naam alleen is verheven; \sep\ Zijn Majesteit gaat aarde en hemel te boven,
+
+  en Hij heeft de hoorn van Zijn volk verheven. \sep\ Hij is de roem van al Zijn getrouwen, \sep\ van de zonen van
+  Israël, van het volk, dat Hem zo na is.
+\end{halfparskip}
+
+\begin{halfparskip}
+  \psalm{149} Zingt een nieuw lied voor de Heer, \sep\ Zijn lof weerklinke in de kring der heiligen!
+
+  Laat Israël zich over zijn Schepper verheugen, \sep\ de zonen van Sion jubelen over hun Koning.
+
+  Dat zij Zijn Naam met reidans loven, \sep\ Hem bezingen bij pauk en citer,
+
+  Want de Heer bemint Zijn volk, \sep\ en de nederigen kroont Hij met zege.
+
+  Dat de heiligen juichen om de glorie, \sep\ zich op hun legersteden verblijden!
+
+  Gods lof zij in hun mond, \sep\ en het tweesnijdend zwaard in hun hand,
+
+  Om zich te wreken op de heidenen, \sep\ om de volken te tuchtigen;
+
+  Om hun koningen in ketens te slaan, \sep\ en hun prinsen in ijzeren boeien,
+
+  Om het vastgestelde vonnis aan hen te voltrekken: \sep\ dat is de roem van al Zijn heiligen.
+\end{halfparskip}
+
+\begin{halfparskip}
+  \psalm{150} Looft de Heer in Zijn heiligdom, \sep\ looft Hem in Zijn verheven firmament.
+
+  Looft Hem om Zijn grootse werken, \sep\ looft Hem om Zijn hoogste Majesteit.
+
+  Looft Hem met bazuingeschal, \sep\ looft Hem met harp en citer.
+
+  Looft Hem met pauken en reidans, \sep\ looft Hem met snaarinstrument en schalmei.
+
+  Looft Hem met welluidende cimbalen, \sep\ looft Hem met rinkelende cimbalen: al wat adem heeft, love de Heer!
+\end{halfparskip}
+
+\begin{halfparskip}
+  \psalm{116} Looft de Heer, alle volkeren, \sep\ alle naties, verheerlijkt Hem.
+
+  Want Zijn erbarming blijft ons verzekerd, \sep\ en de trouw van de Heer duurt eeuwig.
+
+  Eer aan de Vader, de Zoon en de H. Geest. Vanaf het begin en in alle eeuwigheid, amen.
+
+  Verheerlijk de Heer, heel de aarde, Gever van licht, Heer, zelfs aan U brengen wij glorie.
+\end{halfparskip}
+
+\dd\ Laat ons bidden; vrede zij met ons.
+
+\cc\ Hemel en aarde, en alles wat daarin is, moeten U, mijn Heer, belijden, aanbidden en verheerlijken, voor al Uw hulp en genaden jegens ons, waarvan de grootheid niet kan worden terugbetaald, Heer van alles, Vader ...
+
+\begin{doublecols}
+  \englishl \rr\ You, Lord of all, we worship You; Jesus Christ, we exalt You; You give life to our bodies; and salvation to our souls!
+
+  \dutchc{1} \rr\ U, Heer van alles prijzen wij. U, Jezus Christus loven wij. Gij doet lichamen verrijzen, Gij zijt het die zielen redt.
+\end{doublecols}
+
+\dd\ Mijn stem zult Gij `s morgens horen; Heer, `s morgens zal ik klaar staan en voor U verschijnen.
+
+\rr\ U, Heer van alles...
+
+\dd\ Eer aan de Vader, de Zoon en de H. Geest. Vanaf het begin en in alle eeuwigheid, amen en amen.
+
+\rr\ U, Heer van alles...
+
+\dd\ Laat ons bidden; vrede zij met ons.
+
+\cc\ U, die in Uw mededogen onze lichamen levend maakt en (ons) antwoord geeft, en onze zielen redt door de milde wenk van Uw wil, O grote Koning der heerlijkheid, Wezen dat van eeuwigheid is, wij belijden, aanbidden en verheerlijken U, ten allen tijde, Heer van alles, Vader...
+
+\rr\ Amen.
+
+\begin{halfparskip}
+  \psalm{51,1--18} Ontferm U over mij, o God, naar Uw barmhartigheid; \sep\ delg toch mijn misdaad uit volgens Uw grote ontferming.
+
+  \qanona{Ontferm U over mij, o God.}
+
+  Ontferm U over mij, o God, naar Uw barmhartigheid; \sep\ delg toch mijn misdaad uit volgens Uw grote ontferming.
+
+  Zuiver mij geheel van mijn schuld, \sep\ en reinig mij van mijn zonde.
+
+  Want mijn boosheid erken ik, \sep\ en mijn zonde staat mij steeds voor ogen.
+
+  Tegen U alleen heb ik gezondigd, \sep\ en wat kwaad is in Uw ogen, heb ik gedaan:
+
+  Zo zult Gij rechtvaardig in Uw uitspraak blijken, \sep\ onberispelijk in Uw oordeel.
+
+  Zie, in schuld ben ik geboren, \sep\ en in zonde ontving mij mijn moeder.
+
+  Zie, in de oprechtheid van het hart schept Gij behagen, \sep\ en Gij leert mij de wijsheid in het diepst van
+  mijn hart.
+
+  Besprenkel mij met hysop, en ik zal gereinigd worden; \sep\ was mij, en ik zal blanker zijn dan sneeuw.
+
+  Laat mij een blijde tijding vernemen, \sep\ laat juichen mijn gebeente, dat Gij hebt verbrijzeld.
+
+  Wend van mijn zonden Uw aanschijn af, \sep\ en delg al mijn schulden uit.
+
+  Schep in mij een zuiver hart, o God, \sep\ en vernieuw in mij een standvastige geest.
+
+  Verwerp mij niet van Uw aanschijn, \sep\ en neem Uw heilige geest niet van mij weg.
+
+  Schenk mij terug de vreugde van Uw heil, \sep\ en sterk mij door een edelmoedige geest.
+
+  Dan zal ik de bozen Uw wegen doen kennen, \sep\ en de zondaars zullen zich bekeren tot U.
+
+  Verlos mij van bloedschuld, o God, God, mijn Redder, \sep\ en dat mijn tong over Uw gerechtigheid juiche.
+
+  Heer, open mijn lippen, \sep\ en mijn mond zal Uw lof verkondigen.
+
+  Neen, in een slachtoffer schept Gij geen vreugde, \sep\ en zo ik een brandoffer bracht, Gij zoudt het niet aanvaarden.
+
+  Mijn offer, o God, is een rouwmoedige geest; \sep\ een berouwvol en vernederd hart zult Gij niet versmaden, o God.
+
+  Eer aan... \qanona{Ontferm u over mij, o Heer; ontferm u over mij, o God, in Uw goedheid; in Uw overvloedige mededogen wis mijn overtreding uit. Christus Koning, heb medelijden met mij.}
+\end{halfparskip}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\markedsection{Tesbohta}
+
+\begin{halfparskip}
+  \liturgicalhint{(voor recitatie:)} Aan U zij glorie, o God, en aan U zij lof, o onze Maker.
+
+  Wij zegenen U, die ons gevormd heeft, barmhartige Heer; lankmoedige God, medelijdende Schepper, Redder, die ons bewaart.
+
+  Die ons helpt en bijstaat, wij aanbidden U, Heer; want U bent lankmoedig, en Uw goedertierenheid is groot.
+
+  Barmhartige, heb medelijden met ons en ontferm U over ons; richt U tot ons in Uw overvloedige erbarmen.
+
+  Onze vaste hoop en sterke toevlucht. Heer onze God, laat Uw aangezicht stralen, en we zullen worden gered.
+
+  U die de boetelingen met barmhartigheid ontvangt, ontvang ons gebed en onze eredienst.
+
+  U die de stem van Uw aanbidders hoort, laat ons verzoek voor U komen, en heb medelijden met ons.
+
+  U die de overtredingen van stervelingen in Uw mededogen vergeeft, vergeef ons onze overtredingen en zonden in Uw mededogen.
+
+  U die de zonden der mensenkinderen vergeeft in Uw goedertierenheid, vergeef onze vele zonden en heb medelijden met ons.
+
+  Goede hoop der mensenkinderen, geef ons vrede en rust, zodat we uw Drie-eenheid, Heer van alles, voor altijd mogen belijden \liturgicalhint{(3x)}
+\end{halfparskip}
+
+\begin{center}
+  \liturgicalhint{(indien gezongen):}
+\end{center}
+
+\begin{triplecols}
+  \englishl In Your presence, Lord of all, we stand in humility singing hymns of praise to You. In Your mercy, Lord our God, we will bless Your love and grace Who are our own Creator.
+
+  Lord our Savior, with your hands hold us safe at all moments; protect and guide at all times. You who are God, Lord of all, have mercy on Your servants who praise Your Divinity.
+
+  \englishc{1} Lord Jesus Christ, port of peace, pour forth in floods Your mercy, look upon us Your children; let Your face shine on us, Lord, illumine these humble ones, that we may find salvation.
+
+  Lord of mercy who receives every sinner who repents, You are truly our refuge. Hear our prayers, kindly Lord;let the cries of worshippers rise before You like incense.
+
+  \englishc{2} Lord who free all from their debts, in Your mercy, loose our bonds and remit our trespasses. You who pardon in mercy, forgive us each all our sins though so countless in Your sight.
+
+  You are the true hope of all: Grant peace and prosperity to Your children in the world, that we all may sing and bless the Name of Your Trinity, O Lord of all, for ever.
+\end{triplecols}
+
+\rr\ Laat ons bidden; vrede zij met ons.
+
+\cc\ Christus, goede Hoop der mensenkinderen, en vredevolle toevluchtsoord, die vrede geeft aan de schepselen; mijn Heer, schenk ons Uw vrede en rust, opdat wij U daarin zonder ophouden kunnen belijden en verheerlijken, alle dagen van ons leven, Heer van alles in alle eeuwigheid. --- R. Amen.
+
+\dd\ Verheft uw stem, geheel het volk, en prijst de levende God!
+
+\begin{doublecols}
+  \englishl \rr\ Holy, holy, holy God / Holy, holy, mighty One /         Holy and immortal God / Lord, have mercy on us all!
+
+  \dutchc{1} \rr\ Heilige God, almachtige Heilige, onsterfelijke Heilige, ontferm u over ons.
+\end{doublecols}
+
+\dd\ Eer aan de Vader, de Zoon en de H. Geest. ---  \rr\ Heilige God...
+
+\dd\ Vanaf het begin en in alle eeuwigheid, amen en amen. ---  \rr\ Heilige God...
+
+\rr\ Laat ons bidden; vrede zij met ons. --- \liturgicalhint{(Indien er geen martelaarshymne is, is er ook geen Onze Vader)}
+
+\cc\ Onze Vader die in de hemelen zijt,
+
+\rr\ Geheiligd zij Uw Naam. Uw rijk kome, heilig, heilig, heilig zijt Gij. Onze Vader die in de hemelen zijt, de hemel en de aarde zijn gevuld met Uw onmetelijke glorie; de engelen en de mensen roepen U toe: heilig, heilig, heilig zijt Gij. Onze Vader die in de hemelen zijt, geheiligd zij Uw Naam. Uw rijk kome, Uw wil geschiede op aarde zoals in de hemel. Geef ons heden het brood dat we nodig hebben; en vergeef ons onze schulden en zonden zoals wij ook vergeven hebben aan onze schuldenaren. En leid ons niet in bekoring, maar verlos ons van de Kwade. Want van U is het koninkrijk en de kracht en de heerlijkheid in eeuwigheid, amen.
+
+\cc\ Eer aan de Vader, de Zoon, en de Heilige Geest.
+
+\rr\ Vanaf het begin en in alle eeuwigheid, amen en amen. Onze Vader die in de hemelen zijt, geheiligd zij Uw naam, Uw rijk kome, heilig, heilig, heilig zijt Gij. Onze Vader die in de hemelen zijt, de hemel en de aarde zijn gevuld met Uw onmetelijke glorie; de engelen en de mensen roepen U toe: heilig, heilig, heilig zijt Gij.
+
+\cc\ Barmhartige, wiens Naam heilig is; Goede en Rechtvaardige, wiens genade en barmhartigheid overvloeien van eeuwigheid, stort, onze Heer en onze God, het mededogen van Uw liefdevolle goedheid uit over de zielen van Uw aanbidders, die U aanroepen en U smeken in alle seizoenen en tijden, Heer van alles, Vader ...
+
+\cc\ Zegen, Heer, Uw dienaren in Uw goedertierenheid en bewaar Uw aanbidders voor alle kwaad in de grote over¬vloed van Uw barmhartigheid; voed, leid, help en bescherm onze levens onder de vleugels van Uw liefdevolle zorg; bewaar, red en verlos onze lichamen en zielen van de boze en zijn legers, te allen tijde, Heer van alles, Vader...
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\markedsection{Hymne der martelaren}
+
+\markedday{Maandagen}
+
+\begin{halfparskip}
+  Mijn stem zult U `s ochtends horen, Heer. --- `s Morgens, wanneer worden geopend de deuren in den hoge voor gebed, ontvang, o Heer, onze smeekbede; en verhoor onze verzoeken in Uw barmhartigheid; en schenk hoop en redding aan de zielen die op U wachten.
+
+  En `s morgens zal ik klaar staan en voor U verschijnen. --- De ochtend van onze Heer is aangebroken; en plotseling verschijnt onze Heiland; en geeft de beloning aan de rechtvaardigen. Gezegend hij die ijverig was; en heeft gewerkt in de wijngaard van Christus; en zijn beloning rijkelijk heeft ontvangen.
+
+  Laat ons `s morgens Uw goedertierenheid vernemen. --- Maak ons waardig, Heer, voor die ochtend, wanneer hemel en aarde zich zullen verheugen, en de rechtvaardigen zich zullen verheugen in hun inspanningen, en de gerechtigen in hun beloning; en ook de martelaren in hun kronen; en de naties in de vergeving van hun fouten.
+
+  En `s morgens zal mijn gebed voor U komen. --- `s Ochtends bad Mozes, de uitverkorene, op de top van de berg. En daar antwoordde God hem, en gaf hem de staf van hulp, zodat hij zou neerdalen en Israël redden van de onderwerping aan de Egyptenaren.
+
+  Om `s ochtends Uw goedheid te tonen. --- Mozes zag `s ochtends een vreselijk visioen op de top van de berg: God, die voorbijgaat in processie; cherubijnen dragen Zijn troon; serafijnen zingen ``Heilig'' ter ere van Hem; en engelen dienen Hem.
+
+  Zingt voor de Heer met harpen en met het geluid van gezang. --- `s Morgens zong de knaap David met zijn harp liederen van de Heilige Geest; en de dieren verzamelden zich, en kwamen naar het zoete geluid van zijn woorden, terwijl hij alleluia zong.
+
+  En laten we Hem prijzen met liederen. --- `s Ochtends zongen de martelaren een nieuw lied in de rechtszaal: Wij zullen Christus niet verloochenen, die voor ons heeft doorstaan: lijden, dood en het Kruis; en Hij redde ons ras van dwaling.
+
+  God heeft Zijn genade en waarheid gezonden. --- `s Morgens werd de duif uitgezonden door de onberispelijke Noach, vanwege de wateren van de vloed. En ze keerde terug en kwam naar de ark met een olijfblad, het teken van vrede en rust.
+
+  U hebt een teken gegeven voor wie U vrezen. --- `s Morgens werd een teken van vrede en rust gezien: de boog van onze Heer in de wolken, en de mond van de Schepper zwoor: ``Ik zal in eeuwigheid geen vloed meer veroorzaken''.
+
+  In het zicht van al het volk. --- `s Morgens verhieven de martelaren hun stem en riepen in de rechtszaal: ``Wij aanbidden geen afgoden, we aanbidden de ene God en belijden Zijn Zoon Jezus. Hij verlost ons van het vuur.''
+
+  Weest sterk en uw hart zal dapper worden. --- `s Morgens bemoedigden de martelaren elkaar in de rechtszaal, zeggende: De Heer is onze helper, we vrezen niet; wat kan een mens ons aandoen, wiens kroon en macht zullen vergaan, maar het koninkrijk van de Heer blijft altijd.
+
+  Hoort dit, alle volkeren. --- `s Morgens werd gehoord de stem die tot de atleten zei. ``Neemt uw kruisen op en volgt Mij, want Ik ben uw Heer en uw Meester, uw God en Sterktegever, en jullie zijn Mijn leerlingen''.
+
+  Hij verschaft recht aan hen, de onderdrukten. --- `s Morgens bad de trouwe Shmuni tot God: ``O God, verschaf mij recht tegen de goddeloze Antiochus, die mijn zonen doodt als lammeren, en mij als een leeuw bedreigt''.
+
+  Mogen uw gebeden over ons allen zijn. --- Gadai, Maccabaeus en Tersai. Hebron, Khiusun en Bakus; en de zevende zoon, Jonadab; en hun leraar Eleazar; en hun moeder, de gelovige Shmuni: moge hun gebed een muur voor ons zijn.
+
+  Het leger der engelen van de Heer. --- `s Ochtends gingen de martelaren; in ordelijke rijen, rijen van heiligen, uit de gevangenis, zeggend. ``Haast u, koning, om onze hoofden af te hakken; zodat we kunnen vertrekken en naar de hemel gaan; naar onze Heer die op ons wacht''.
+
+  Want Hij heeft iets wonderbaar gedaan. --- Dat wat gedaan was van het ene uiteinde van de wereld naar het andere was een wonder: genade overschaduwde de geliefde jongen Cyriac op de leeftijd van drie jaar. Genade overschaduwde hem en hij werd gesterkt in het geloof.
+
+  Rechtvaardig en oprecht. --- Moge het gebed van de martelaar Joris voor ons een hoge muur zijn; dat de pijlen van de boze mogen afwijken; dat hij ons niet doorbore met zijn lans. Hij haat altijd ons ras; en wenst altijd onze vernietiging.
+
+  Komt en luistert, en Ik zal u vertellen. --- Luistert en verwondert u, gij verstandigen: Een maagd heeft gebaard in Bethlehem: het Licht van de hele wereld. En zie, haar gedachtenis wordt gevierd in de vier uiteinden van de schepping; en in de hemel bij de engelen.
+
+  Eer... --- Glorie aan U in de ochtend van hoog en laag, Zoon die aan de rechterkant zit, want met het geluid der bazuinen worden gewekt: ouderlingen, jongelingen en kinderen, die U voor Uw glorie hebt geschapen.
+
+  Vanaf het begin en in alle eeuwigheid. --- Gezegend Hij die handel heeft gedreven, zoals U, onze vader, handel hebt gedreven; Hij heeft geestelijke rijkdom verzameld; en zijn schip met allerlei goede dingen gevuld, is uitgevaren en is naar de haven gekomen, naar de verblijfplaats van alle rechtvaardigen.
+
+  Laat al het volk zegen: ``amen en amen''. --- Heer, Uw rijk kome, Uw wil geschiede op aarde, zoals het is in de hemel. Geef ons het brood dat we nodig hebben, en leid ons niet in bekoring, maar verlos ons van de boze.
+
+  Moge de hulp die Mozes, de eerstgeborene der profeten, begeleidde, en die de zee voor het Volk verdeelde, Uw aanbidders begeleiden, die gekomen zijn om vergeving te vragen uit de schatkamer van Uw goedheid.
+\end{halfparskip}
+
+\markedday{Dinsdagen}
+
+\begin{halfparskip}
+  Prijst de Heer, gij rechtvaardigen. --- Martelaren, jullie waren kooplieden; en ziet, jullie schat is in de hemel. Jullie hebben de parel gekocht met het bloed dat jullie nekken vergoten.
+
+  De oprechten past een lofzang: --- De martelaren werden verheven en bereikten het hemelse Jeruzalem, en het land waarop ze wachtten, kochten ze met het bloed van hun nekken.
+
+  Ze gingen van het ene land naar het andere. --- Jullie zijn van land tot land getrokken, maar zijn niet van uw Heer afgeweken; en in elk land dat jullie hebben betreden, plaatsten jullie een schat van leven.
+
+  De Heer zal er voor altijd verblijven. --- In het land waar jullie beenderen werden gelegd heerst vrede en rust. En het leger der wachters [engelen] in den hoge beschermt het en zijn bewoners.
+
+  Zalig het volk dat zo is. --- Zalig is het land waar jullie beenderen werden gelegd als schatten. En telkens wanneer het licht van de zon onderging, straalde het licht van uw beenderen naar buiten.
+
+  Over de rechtvaardigen scheen licht in de duisternis. --- Er scheen licht uit jullie beenderen. Het spoorde me aan\footnote{\emph{letterlijk}: leidde mijn geest gevangen.} om jullie na te volgen. Ik ging erop uit om jullie dood te zien, en ik bewonderde jullie kronen.
+
+  Zij zijn meer begeerd dan goud en edelstenen. --- Jullie beenderen zijn parels, en jullie lichamen zijn zoete wierook. Het bloed dat uit jullie nekken stroomde werd genade voor de hele schepping.
+
+  Zij die in de graven zijn zullen Uw goedheid verkondigen. --- Ziet, in de Kerk zijn jullie beenderen; en jullie hebben de sleutels van de hoge [= hemel]. Gezegenden, opent uw schatten; en helpt de behoeftigen.
+
+  Als een stad omgeven door een muur. --- Zoals balken in een gebouw, omgorden de martelaren de schepping. En toen de aarde op het punt stond te vallen, ondersteunden ze haar met de kracht van hun beenderen.
+
+  Ik verzamelde mijn krachten, maar kon niet zegevieren. --- De zee kan geen doorbraak maken in de muur, die omringd is door Uw liefde. En Satan kan niet heersen in het land waar jullie beenderen gelegd zijn.
+
+  Om Uwentwil werden we de hele dag gedood. --- De Heer, wiens martelaren werden gedood voor de glorie van Zijn Majesteit; op de dag waarop Zijn Kruis verschijnt, zal Hij ze plaatsen aan Zijn rechterhand.
+
+  Want daar beval de Heer zegen, ja, leven voor altijd en eeuwig. --- Waar de martelaren werden vermoord, en hun ledematen afgesneden, daar daalde de Heilige Geest neer, en schiep vrede temidden van de verslagenheid.
+
+  Komt, laten we knielen en Hem aanbidden. --- Laten we eren vóór jullie graven de kracht, verborgen in jullie beenderen. En wij, die jullie dood op aarde hebben gezien, zullen jullie kronen in de hemel zien.
+
+  Zij die met schepen de zee ingaan. --- Martelaren, jullie waren kooplieden, en reisden over zee en land. Jullie hebben door (jullie) tranen vrede op de zee gebracht, en op het land door jullie gebeden.
+
+  Uit de diepte heb ik tot U geroepen, Heer, en U hebt mijn stem gehoord. --- Uit de diepte riepen de martelaren tot U, en Uw liefderijkheid verhoorde hen. Vanuit de diepte roepen wij tot U: Kom, help en red ons.
+
+  Ik zal de Heer altijd zegenen. --- Gezegend zij de Heer, wiens dienstknechten in slaap zijn gevallen. En Hij verheerlijkt hun gedachtenis. Zij slapen en zijn in vrede en rust; en van hen ontspringt hulp.
+
+  Hoe goed en hoe mooi. --- Hoe heerlijk is de kroon op jullie hoofden, geweven door het geloof, en versierd door de Heilige Geest met goede en kostbare stenen.
+
+  Als een dorstig en moe land dat naar water smacht. --- Als een land dat dorst naar water, en dagelijks vocht verlangt, zo leden de martelaren dorst, voor de liefde van hun dierbare Heer.
+
+  Zij zijn de nieuwe mensen die nu gemaakt zijn. --- Komt in vrede, nieuwe bruidegoms; zonen van het mysterie van het doopsel, dat de genade heeft doen groeien, in de naam van de Drie-eenheid.
+
+  En Ik sprak over vrede. --- Vrede zij aan jullie beenderen; en rust aan jullie ledematen, want jullie werden gelijkvormig aan jullie Heer, door Wiens dood zondaars leven hebben verkregen.
+
+  Belijdt Hem en zegent Zijn Naam. --- Belijdt de waarheid en geeft niet op. Ziet de zwaarden en vreest niet, want jullie hebben een verborgen wapenuitrusting aangetrokken, gesmeed door de Heilige Geest.
+
+  Kleinen zowel als groten. --- De martelaar zei aan zijn gezel, en medeleven voelend voor zijn metgezel: ``Komt, laten we voor Jezus sterven, en het eeuwige leven beërven''.
+
+  De Heer is getrouw in Zijn woorden. --- Hoort, martelaren, het woord dat onze Heer sprak en ze werden erdoor gesterkt: ``Hij, die voor Mij sterft, heeft eeuwig leven''.
+
+  Meer begeerd dan goud en edelstenen. --- Zoals uitverkoren stenen en kostbare parels zijn geliefd de martelaren, die werden gedood voor Jezus.
+
+  Hoe goed en hoe mooi. --- Hoe mooi is dat schip, dat mar Cyriac heeft vervoerd. Koren cherubijnen begeleiden het, en serafijnen zingen het ``Heilig''.
+
+  Van het opkomen tot het ondergaan van de zon. --- Ziet, in alle plaatsen wordt gevierd de glorieuze dag van de herdenking van de glorierijke martelaar Hormizd. Gezegend is Hij die hem met overwinning heeft bekroond.
+
+  Hij geneest de gebrokenen van hart en geneest hun pijnen. --- U was een genezer, mar Joris, zonder medicijnen en kruiden. En iedereen die zijn toevlucht bij u zoekt, wordt geholpen door uw gebeden.
+
+  Ik wil uw goed zoeken. --- Bid, u die vol genade bent tot het Kind, dat uit uw schoot verscheen, dat Hij Zijn vrede en rust laat wonen in Zijn Kerk, gekocht met Zijn bloed.
+
+  Eer... --- Vrede aan jullie, die hebben overwonnen, vrede aan jullie die hebben gezegevierd. Vrede aan jullie, die deelnemers zijn geworden aan het lijden van de Zoon.
+
+  Vanaf het begin en in alle eeuwigheid. --- Uw waarheid is groot, o onze vader; uw zaligheid is verheven en heerlijk. Bid voor ons allemaal, dat we mogen delen in uw zaligheid.
+
+  Laat al het volk zeggen: amen en amen. --- U die de gebeden van Uw dienaren hoort, verhoor de verzoeken van Uw aanbidders. Hoor ons gebed en het geluid van ons verzoek, en verhoor in Uw erbarmen onze verzoeken.
+
+  U, wiens rechterhand is uitgestrekt, Wiens deur openstaat voor de boetelingen, open de deur voor ons gebed, en laat ons verzoek vóór U komen.
+
+  U, rond wiens troon de vurigen [= engelen] en de koren der wachters [= engelen] staan, neem de bedrieger van ons weg, bestraf de boze, en doe hem zwijgen.
+
+  U die waar bent en niet liegt, die hebt beloofd: ``Klop en Ik zal openen'', heb welgevallen met het gebed van Uw aanbidders, en verhoor de verzoeken van onze zielen.
+\end{halfparskip}
+
+\markedday{Woensdagen}
+
+\begin{halfparskip}
+  Uw dienstknechten zullen U danken, Heer. --- Heilige martelaren en geloofsleraren, bidt dat er vrede mag zijn in de schepping. \underline{Laat} oorlogen stoppen en twisten onder ons ophouden. En moge de Kerk lof zingen door de mond van haar kinderen.
+
+  Uw heiligen zullen U prijzen. --- Mogen de heilige martelaren, die U beleden in hun beproevingen en U verzoenden door het bloed dat uit hun nek stroomde, voor de zondaars bidden, o Heer, dat U op de dag van het oordeel hun overtredingen moge vergeven.
+
+  Zij zullen spreken over de glorie van Uw koningschap. --- De martelaren zagen de glorie van Uw koningschap in hun geesten toen ze werden vermoord door hun vervolgers. En ze ondergingen vreugdevol vreselijke martelingen in hun lichamen. Onze Heer Jezus ontving hun geesten.
+
+  Kostbaar is hun bloed in Zijn ogen. --- Laat ons de beenderen der martelaren, die beproevingen hebben doorstaan, vroom eren met liederen van de Heilige Geest, zodat we van hun inspanningen hulp mogen ervaren op de dag van de beloning, door Gods genadige goedheid.
+
+  De Heer in den hoge is glorieus. --- In den hoge zijn uw kronen en in de wereld zijn uw bijeenkomsten, o martelaren, predikers van Christus Koning. Ziet, in den hoge en hier beneden worden uw feesten gevierd, o zaaiers van vrede in de vier windstreken.
+
+  Zoekt de Heer en weest gesterkt. --- Martelaren, zoekt genade bij de barmhartige God, dat Hij Zijn vrede mag doen wonen in de vier windstreken. En wanneer onze Heer wordt geopenbaard en de wolken jullie lichamen dragen, bidt dat we met jullie het koninkrijk mogen beërven.
+
+  Mijn stem zult U `s morgens horen, Heer. --- `s Morgens riepen de martelaren in de rechtszaal tot de vervolgers: ``We zullen de hemelse Bruidegom niet verloochenen. Want Hij is het die ons verlost uit de handen der goddelozen, en die ons lichaam bekleedt met heerlijkheid in Zijn koninkrijk''.
+
+  En `s ochtends zal ik me klaar maken en voor U verschijnen. --- In de ochtend, wanneer Christus de Koning, die jullie kroont, verschijnt, profeten, apostelen, martelaren en belijders, en op uw hoofd kransen van heerlijkheid plaatst die niet verdorren, bidt dat we met jullie het koninkrijk mogen beërven.
+
+  Over de rechtvaardigen scheen licht in de duisternis. --- Martelaren, zonen van het licht, die de wereld en haar goederen haatten, en de hemelse Bruidegom verlangden en beminden, smeekt en bidt uw Heer die jullie beminden, dat Hij ons moge sparen en onze zielen moge redden.
+
+  Zalig zijn zij die onberispelijk op de weg zijn. --- Gezegend zijn jullie, martelaren, die Satan hebben overwonnen; en de angel van dood en zonde hebben vertrapt; moge uw gebed voor ons een hoge muur en een toevluchtsoord zijn van de listen van de boze, de vijand.
+
+  En die wandelen in de wet van de Heer. --- Een zegen die niet voorbijgaat, en een koninkrijk dat niet vernietigd  wordt heeft onze Heiland beloofd aan de vrienden die Hij heeft uitgekozen. En in plaats van beproevingen, martelingen en verwondingen die ze hebben doorstaan, heeft Hij hen het oneindig leven gegeven.
+
+  De rechtvaardigen en oprechten. --- Klein was de illustere martelaar Cyriac in zijn jeugd; en met zijn woorden verbaasde hij de koning en zijn dienaren, en ontving toen het zwaard van de goddeloze koning. Hij werd daardoor gekroond ter wille van onze Heiland.
+
+  Gij zijt mooier in uw verschijning dan de mensenkinderen. --- Een prachtige loot en een olijfboom versierd met takken was mar Joris, de vriend van Christus, die door de nederigheid en liefde die hij bezat voor zijn Heer zijn schouder boog en het Kruis droeg.
+
+  De maagden, haar metgezellen, leiden zij achter haar. --- Heilige maagd Maria, gezegende moeder, alle geslachten noemen u gezegend. Want u was waardig om Emmanuel in uw boezem te dragen, die de profeten vooraf beschreven in hun gelijkenissen.
+
+  Eer... --- Glorie aan de Macht die in de beenderen der heiligen woont. Zijn stem weerklinkt in de vier windstreken. Ze worden in de kerken begraven; hulp vloeit daaruit voort, en de waarheid wordt geopenbaard door de kracht van hun woorden.
+
+  Vanaf het begin en in alle eeuwigheid. --- Gij die alle dagen van uw leven de zuiverheid beminde, gij waart smetteloos voor Christus. Zie, door uw levenswandel woont uw ziel in de tent der heiligen tussen de engelen.
+
+  Laat al het volk zeggen: amen en amen. --- Geef ons, onze Levengever, dat waarvan U weet dat het ons helpt. Want we weten niet wat we [moeten] vragen, maar één ding smeken we, dat Uw wil in ons vervuld mag worden, en dat Uw barmhartigheid voor ons allen mag pleiten.
+
+  Christus, die beloofde: ``Aan iedereen die roept, antwoord Ik; en voor wie aan Mijn deur klopt, doe Ik open'', weiger Uw erbarmen en Uw goedheid niet aan Uw aanbidders, die hun toevlucht bij U nemen om hulp te krijgen.
+\end{halfparskip}
+
+\markedday{Donderdagen}
+
+\begin{halfparskip}
+  Want Hij spreekt over vrede over Zijn volk met Zijn heiligen. --- Vrede voor de martelaren en eer aan hun beenderen; glorie aan hun Heer en hulp voor ons door hun gebed.
+
+  In Uw licht zien wij het licht. --- De martelaren zijn in het licht en de apostelen in de bruidskamer van het licht. En zie, ze zingen lof aan het (goddelijk) Wezen dat in het verheven licht woont.
+
+  Zingt eerbiedig een lied. --- De martelaren, wanneer ze het koninkrijk betreden, zeggen: ``Eer aan U, onze Heer. want zij die op U hopen, zullen niet beschaamd worden''.
+
+  Ook allen die op U hopen, zullen niet beschaamd worden. --- De martelaren zeggen: Wij hebben onze toevlucht genomen tot Uw Kruis. Barmhartige Heer, laat (Uw) greep op ons niet los.
+
+  Hij verdeelde de zee en liet ze oversteken. --- Martelaren, die over een brug van vuur naar den hoge gingen, bidt dat we niet zinken in de onrustige zee van zonden.
+
+  Kostbaar is hun bloed in Zijn ogen. --- Christus, die het bloed der martelaren ontving op de dag dat ze werden vermoord, ontvang ons gebed, en open de deur voor onze bede.
+
+  De Heer in den hoge is glorieus. --- Boven in den hoge, en in de grenzeloze schat zijn de inspanningen opgeborgen van de martelaren, de vrienden van Christus.
+
+  Van oudsher is Uw troon gevestigd. --- Zoon, wiens koningstroon in den hoge is gevestigd, houd de aarde in stand, die onze schulden hebben omvergeworpen, door het gebed van Uw heiligen,.
+
+  Zingt tot de Heer met harpen en met het geluid van een gezang. --- Met het geluid van alleluja's en liederen van de Heilige Geest zingen de heiligen; en de rangen van legioenen [= duivels] waren bevreesd.
+
+  Heer, in de ochtend hoort u mijn stem. --- Elke ochtend staan de martelaren in gebed, en vragen om hulp voor de zielen der zondaars.
+
+  En `s morgens zal ik klaar staan en voor U verschijnen. --- In de laatste ochtend, wanneer de heilige martelaren de beloning voor hun inspanningen ontvangen, heb medelijden met ons, o onze Heer, in dat uur.
+
+  Biedt Hem lofoffers aan. --- Mogen de gebeden der martelaren, die zuivere offers voor hun Heer waren, voor ons een muur bij nacht en bij dag zijn.
+
+  Gezegend zijn zij die onberispelijk op de weg zijn. --- Gezegend zijn de martelaren wanneer ze dit woord horen: ``Komt, gaat binnen, gezegenden van Mijn Vader, en erft het leven zonder einde''.
+
+  Zij wandelen in de Wet van de Heer. --- Gezegend zijt gij, die uw Heer in een schatkamer heeft geplaatst; en op Zijn altaar is uw gedachtenis voor altijd.
+
+  Doe wel, Heer, aan de gerechtigen. --- Gezegend zijn de atleten, die de schoonheid van hun persoon voorstellen in de hemelse levenswijze, zodat het niet op aarde blijft en misvormd wordt.
+
+  Aan hen die oprecht van hart zijn. --- Gezegend zijn de martelaren in het tijdstip waarop de goeden van de slechten gescheiden worden, en het koninkrijk beërven.
+
+  Het kamp van de engelen van de Heer. --- U, van de familie van Gregorius [van Nazianze], Basilius en Johannes [Chrysostomus], bidt dat in de Kerk de duisternis van de ketterijen niet binnenkome.
+
+  En uw gebeden zijn op ons allen. --- U, van de familie van mar Efrem, en alle leraars van de waarheid [\emph{Assyrische Hudra: mar Narsai en mar Abraham}], mogen uw gebeden voor ons een muur bij nacht en bij dag zijn.
+
+  Waar geen angst was. --- In de bruidskamer van licht, aan de rechterhand van Christus, verheugen zich alle heilige martelaren.
+
+  Hoe goed en hoe mooi. --- Hoe passend en wenselijk is de heerlijkheid waarmee de rechtvaardigen zijn bekleed, op de dag van de opstanding, door de werken van hun levenswandel.
+
+  In de hemel en op aarde. --- Uw lichaam is bij ons, en uw ziel is in de hemel, martelaar Joris, smeek om genade van de Heer.
+
+  Over de rechtvaardige is licht geschenen in de duisternis. --- Christus, die verscheen uit de gezegende Maria; door het gebed van haar die U gebaard heeft, bescherm Uw Kerk tegen schade.
+
+  Eer ... --- Vrede voor de Kerk, en rust voor al haar bewoners; en glorie aan de Macht, die de martelaren sterkte in de strijd.
+
+  Vanaf het begin en in alle eeuwigheid. --- Moge het gebed van onze vader, die een onberispelijk offer was voor zijn Heer, voor ons een muur bij nacht en bij dag zijn.
+
+  Laat al het volk zeggen: amen en amen. --- Mijn Heer, laat het gebed van Uw dienaren niet tevergeefs zijn, maar voor verzoening, en vergeving van zonden.
+
+  Ik ging Uw huis binnen en bad vóór Uw rechterstoel, barmhartige Heer, vergeef me mijn schulden en zonden. Dit huis is een voorafbeelding van de hemel, laat ons in liefde zonder bedrog het voortdurend betreden.
+\end{halfparskip}
+
+\markedday{Vrijdagen}
+
+\begin{halfparskip}
+  Ik zal de Heer altijd zegenen. --- Gezegend is de verborgen macht die woonde in de beenderen der martelaren. Want ze worden in hun graven gelegd, en verdrijven duivels van de wereld. Door hun leer maakten ze een einde aan alle dwaling der gekerfden [afgoden]. Ze bezoeken op mystieke wijze de schepping en leren (mensen) om U te aanbidden. Want U alleen bent de Heer.
+
+  Zijn lof is altijd in mijn mond. --- Gezegend is Christus, die Zijn twaalf met stevige wapenuitrusting bekleedde. Ze trokken naar de vier windstreken, en preekten in de wereld Zijn leer. Ze vernietigden de macht van de vijand door het zwaard van de Geest; en bekeerden de naties van dwaling naar de waarheid van hun geloof.
+
+  Verheven is onze Heer, en zeer prijzenswaardig. --- Groot is de waarheid van de heilige martelaren, die in alle regio's wordt gepredikt, die noch vuur, noch zwaard; noch de toorn van de heidense koning, noch iets anders bewoog of schrik aanjaagde. God alleen beleden ze; en ze verachtten alle folteringen.
+
+  Getrouw is de Heer in Zijn woorden. --- De rechtvaardige martelaren, die triomfeerden en overwonnen, werden getest in het geloof. Want ze wisten dat waar was dat woord, dat onze Heer had gezegd: ``Iedereen die Mij belijdt voor rechters en heersers, zal Ik het koninkrijk in den hoge, dat in de hemel is, laten beërven. En Ik zal hem belijden voor de Vader.''
+
+  Kijkt naar Hem en vertrouwt op Hem. --- Met het oog van de Geest keken en zagen werkelijk de ``zonen van de rechterhand'' [= uitverkorenen] het land dat hierboven is, achter de sluier van het Heilige der Heiligen. En ze verlangden het en renden ernaar via de weg der martelingen van hun vervolgers. En door het Kruis, zoals op een brug, staken ze de zee van de wereld over, naar de hoge plaats, dat hun woning is.
+
+  Uw rechterhand rust op mij. ---  Moge de rechterhand van onze Heer, die allen tot het koninkrijk roept, onze vergadering zegenen, dat we de herdenking der martelaren mogen houden; en dat wij ook geholpen mogen worden door hun gebeden. Dat ze voor ons ras een hoge muur mogen zijn op de laatste dag, wanneer de hoogte en de diepte verwonderd zullen zijn, en de wil van de Schepper zal regeren.
+
+  Het kamp der engelen van de Heer. --- Mijn geest was verwonderd over de gezegende schaar atleten, de be¬roemde martelaren: hoe zij deze wereld en haar verlangens verachtten en minachtten. Zij keken en zagen met helder oog de glorieuze glans van de Parel die aan de top van de boom was, en verlangden die te bemachtigen.
+
+  Mogen uw gebeden op ons allen zijn. --- Helpt door uw gebeden de behoeftigen, o beroemde martelaren. Want u hebt de aarde gevuld met het goede zaad van uw overwinningen (\emph{of}: heldendaden). U hebt de doornstruik ontworteld die de boze met zijn onkruid heeft gezaaid, en zaaide daarin goed zaad, O atleten, werkers van de waarheid.
+
+  Hoe goed en hoe mooi. --- De atleten zagen een Parel zonder gebrek op de top van Golgotha, en verlangden ijverig die te bereiken; en ze kochten Die met hun eigen bloed. En ze ondergingen er lijden en zware martelingen voor. En zie, ze ontvingen de beloning voor hun inspanningen: vreugde zonder einde.
+
+  Hoog in de hele aarde. --- Hoog en verheven is de glorieuze en prijzenswaardige bruidskamer, die Christus Koning heeft bereid voor Zijn atleten, die Hem liefhadden, geloofden en Zijn Naam beleden. En zie, hun feesten worden gevierd in de vier windstreken, terwijl ze tot Hem roepen met het geluid van alleluja's, zeggende: Gezegend Hij die Zijn heiligen heeft verheven.
+
+  Gezegend zijn zij die onberispelijk op de weg zijn. --- Op het fundament van de Twaalf en de zeventig apostelen bouwden de ijverigen: Mar Eugin en mar Shalita, mar Miles met mar Babai; en de vrome mar Jacobus van Suwa en mar Akha en mar Johannes. Moge hun gebed een muur voor ons zijn.
+
+  Ik zal de Heer altijd zegenen. --- Gezegend is Christus die de martelaar Mar Cyriac in zijn strijd versterkte om stand te houden tegen de vervolgers. En hij werd sterker en overwon de koningen die hem bestreden. En door de kracht van de Geest gedroeg hij zich dapper, en verdroeg striemen, en werd een offer voor zijn Heer, en ontving de overwinnaarskroon.
+
+  Verheugt u, zingt en prijst. --- Met vreugde gaf de glorierijke martelaar Mar Joris zijn ziel over aan alle kwellingen. Want hij hoorde Paulus zeggen dat het lijden van deze tijd niet te vergelijken is met die glorie die de rechtvaardigen op de laatste dag erven. En hij die hier zwoegt en ijverig is zal erfgenaam worden.
+
+  De maagden, haar metgezellen, leiden zij achter haar. --- Maagd der eeuwen, Maria, de gezegende moeder, smeek uw Zoon, dat Hij Zijn vrede in deze tempel laat wonen, waarin de dag van uw herdenking plechtig wordt gevierd; en moge Hij haar met de hand van Zijn genade overschaduwen zoals het huis van Abram; zodat allen die gekweld en bedroefd zijn, van Hem hulp mogen ontvangen.
+
+  Eer aan... --- Glorie aan U, goede en minzame Heer, door Uw macht overwonnen de trouwen (of: waar-achtigen); en door Uw hulp verachtten ze de bedreigingen van hun vervolgers; en vernietigden de macht van de vijand [= duivel] die opschepte; want hij zag dat de martelaren hun ware hoop niet loslieten.
+
+  Vanaf het begin en in alle eeuwigheid. --- Moge het gebed van onze glorierijke vader, die vanaf zijn jeugd, zoals Samuël, aan God behaagde, en nederig was zoals Mozes, de eerstgeborene der profeten, en ijverig zoals Elias, en in liefde voor zijn Heer zoals Abraham, een muur zijn voor ons tegen de listen van de sluwe.
+
+  Laat al het volk zeggen: amen en amen. --- We belijden Uw Godheid, goede Heer, want in Uw goedheid behoedt U Uw aanbidders voor kwaad; U hebt Uw deur geopend, o Heer, voor de boetelingen die om genade smeken. En U weigert de grote schat van Uw gave niet aan Uw kudde, U die door allen wordt aanbeden.
+\end{halfparskip}
+
+\markedday{Zaterdagen}
+
+\begin{halfparskip}
+  Mijn stem zult U in de ochtend horen, Heer. --- `s Morgens werden de martelaren opgeroepen om te worden vermoord. En de rechterhand van onze Heer vlecht hun kronen.
+
+  En `s morgens zal ik klaar staan en voor U verschijnen. --- `s Morgens rennen de martelaren naar de wedstrijd, om een dubbele beloning te ontvangen voor hun inspanningen.
+
+  Laat me `s morgens Uw goedheid vernemen. --- `s Morgens riep onze Heer tot de martelaren: ``Komt, ontvangt de beloning, ijverige werklieden''.
+
+  Kijkt naar Hem en vertrouwt op Hem. --- `s Morgens zagen de martelaren de Heilige Geest, die kransen weefde en (ze) op hun hoofden plaatste.
+
+  Over de rechtvaardigen scheen licht in de duisternis. --- `s Morgens stralen de martelaren als de zon, en gaan uit om de hemelse Bruidegom te ontmoeten.
+
+  Heilig en vreeswekkend is Zijn Naam. --- `s Morgens roepen de martelaren met de engelen: Heilig, heilig, heilige God.
+
+  Ze zullen Hem offers brengen. --- `s Morgens brengen de martelaren offers: het gebed van hun mond en het bloed van hun nekken.
+
+  Het offer van mijn handen als het avondoffer. --- `s Morgens hebben de martelaren wierookvaten in hun handen; en brengen offers aan de Koning der koningen.
+
+  Als de reuk van goede wierook en een aanvaardbare geur voor God. --- `s Morgens plaatsen de martelaren wierook voor Hem, Hij Wiens wagen ingespannen is met vuur [i.p.v. paarden].
+
+  Weest sterk en uw hart zal dapper worden. --- `s Morgens moedigen de martelaren elkaar aan: ``Komt, laten we de goddeloze koning minachten''
+
+  In het zicht van heel het volk. --- `s Morgens roepen de martelaren in de rechtszaal: ``We zullen de hemelse Bruidegom niet verloochenen''.
+
+  Hij berispte koningen omwille van hen. --- `s Morgens stonden de martelaren in de rechtszaal, en berispten koningen en beschaamden de goddelozen.
+
+  Omwille van U worden we dagelijks geslacht. --- U, die zoals ik gedood werd en om Mijnentwille vervolgd, Ik en jullie [behoren tot] het Jeruzalem van hierboven.
+
+  Wij worden beschouwd als schapen voor de slachting. --- De martelaren [gingen naar of: waren bestemd voor] de dood en hun Heer naar (of: voor) het Kruis; en de Heilige Geest weeft hun kronen.
+
+  Vanaf het begin is Uw troon opgericht. --- De troon is bereid en de Koningszoon zit [erop]; en de martelaren komen binnen en ontvangen hun kronen.
+
+  De kleinen met de groten. --- `s Morgens rennen de martelaren naar het Kruis, om de wijn te drinken die door de speer werd uitgeperst.
+
+  De Heer is de kracht van Zijn volk. --- Heer, geef de kracht die de martelaren in de strijd heeft gesterkt, aan de vergadering van Uw aanbidders.
+
+  Open voor Mij de poorten der gerechtigheid. --- `s Morgens opent de Koningszoon Zijn schat, en de martelaren gaan binnen en ontvangen hun kronen.
+
+  Zodat ik erin kan gaan en de Heer danken. --- `s Morgens opende onze Heer het paradijs, en de rover ging naar binnen en erfde het koninkrijk.
+
+  Wanneer staat God op? --- `s Morgens staat onze Heer op in de rechtszaal, en roept tot de martelaren: ``Komt, neemt uw kronen''.
+
+  Hoe goed en mooi. --- Hoe passend was het voor de jongen Cyriac, toen hij de goddeloze koning terecht wees.
+
+  Als een vrolijke moeder van kinderen. --- `s Morgens moedigt Shmuni haar zonen aan: ``Vreest niet hem die mensen doodt''.
+
+  Gelukkig zult gij zijn en het zal u welgaan. --- Gezegend is uw geest, martelaar Joris, die met de engelen in de hemel woont.
+
+  Moge de berg Sion zich verheugen, en de dochters van Juda blij zijn. --- Laat de trouwe Kerk zich verheugen en jubelen op de gedachtenis van Maria, de moeder van Christus (of: God).
+
+  Eer... --- Vrede voor de martelaren en glorie voor hun Heer, en voor ons door hun gebed erbarmen en genade.
+
+  Vanaf het begin en in alle eeuwigheid. --- Onze glorierijke vader, de vriend van Christus, smeek uw Heer om genade voor ons allemaal.
+
+  Laat al het volk zeggen: amen en amen. --- Laten we `s morgens prijzen en `s morgens eren de Heer van de ochtend, het ware Licht.
+
+  Laat `s morgens het gebed van Uw aanbidders komen voor Uw rechterstoel, genadige Heer.
+
+  Laat ons `s morgens Uw goedheid belijden, want U hebt licht geordend voor de vreugde der schepselen.
+\end{halfparskip}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\markedsection{Vaste doxologie}
+
+\liturgicalhint{Voor gezang (Mariam Bsulta / Pulariprabhayil):}
+
+\begin{triplecols}
+  \englishl In the bright and dawning light we are singing with delight
+  our hymns and praises to You, Savior of all creation. grant a day of peace and hope in Your mercy, Lord of all, and remission of our sins; lead us on the path of good.
+
+  May Your children never lose the strong hope we place in You. Lord of all, close not the door in Your weak, frail children's face. You know, Father, our follies and the weakness of our race. reward us with Your mercy; look not on our little worth.
+
+  Sow on earth Your unity, peace and charity, o Lord. may all those who tend your sheep see much good fruit in that field. heal the sick, lift those who fall, bestow health to one and all;
+
+  \englishc{1} cleanse the sins from everyone; increase holiness in all.
+
+  May Your hand save us, o Lord, in all paths and ways we go, as You once kept safe from Saul David in his lowliness.
+
+  may each step, o Lord, we take be according to Your will, that we reach our goal in peace under Your protecting care.
+
+  Through the Red Sea, You once led Moses and Your chosen ones. Daniel in the lion's den was preserved, Lord, by Your grace. Ananias and his friends
+  were saved from the furnace fire, guard us also by Your power, Lord, from all the evil ones.
+
+  Rising with the morning sun we adore our Father's Name, and sing glory to His Son, as we thank the Spirit blest.
+
+  \englishc{2} may our loving Father's grace and the mercy of His Son
+  and the Spirit's compassion be upon us all our days.
+
+  Lord, we place our hope in You You the Healer of our lives. may Your mercy's medicine save us from the wounds of sin. You alone can give us strength that we need and keep Your word help, guide and protect, o Christ, those who worship You, o Lord.
+
+  Let us request forgiveness from the Lord compassionate. who waits at His open door for the sinners who repent. day by day we turn to You, yet our sins are multiplied. grant us mercy, Christ our Lord, that we enter Your kingdom.
+\end{triplecols}
+
+\begin{halfparskip}
+  \liturgicalhint{(voor recitatie:)}  Bij de zonsopgang in de ochtend verheerlijken wij U, Heer, want U bent de Redder van alle schepselen. Geef ons in Uw mededogen een dag vol rust, en schenk ons vergeving van zonden.
+
+  Snijd onze hoop niet af; sluit uw deur niet voor ons gezicht; schort Uw zorg voor ons niet op; en vergeld ons niet zoals we verdienen, God, want U alleen kent onze zwakheid.
+
+  Zaai, Heer, in de hele wereld liefde, vrede en eensgezindheid. Laat priesters, koningen en rechters opstaan, Breng de leiders tot vrede, genees de zieken, bewaar de gezonden, en vergeef de fouten van alle mensen.
+
+  Laat Uw goedertierenheid ons bewaren op onze levensweg, Heer, zoals de jonge David van Saul (bewaard werd). Geef ons in Uw mededogen dat waarheen we ook gaan, we in vrede volgens Uw wil mogen aankomen.
+
+  Door de goedertierenheid die de profeet Mozes in de zee bewaarde, en Daniël uit de kuil deed opstaan, en waardoor werden gered het gezelschap van Ananias in de oven, verlos ons, onze Heer, van de boze.
+
+  \liturgicalhint{En:} 's Morgens staan we allemaal op en aanbidden de Vader, loven de Zoon, en belijden de Heilige Geest.
+
+  Moge de goedertierenheid van de Vader, het mededogen van de Zoon, en het medelijden van de Geest, een drievoudig mysterie, onze hulp zijn al onze dagen.
+
+  In U, onze Helper, waarachtige Arts, vertrouwen we. Breng het medicijn van Uw genade aan, en genees onze kneuzingen, zodat we niet volledig worden vernietigd.
+
+  Zonder Uw hulp zijn we erg zwak in het onderhouden van Uw geboden. Christus, die helpt zij die Uw wil vervullen, bewaar Uw aanbidders.
+
+  Laat ons met een vurig gebed om genade smeken, en om vergeving vragen van de Barmhartige, Wiens deur open staat voor allen die tot Hem terugkeren.
+
+  Elke dag beloof ik U dat ik me morgen zal bekeren. Mijn dagen gingen voorbij en zijn verstreken, en mijn overtredingen blijven. Christus, heb medelijden met mij, en ontferm U over mij.
+
+  \rr\ Laat ons bidden; vrede zij met ons.
+
+  \cc\ Van U, grote, voortreffelijke en ware Hoop, voor Wie de rechtvaardigen en profeten in hun generaties hebben gewacht, Die de rechtvaardigen behaagden in hun inspanningen, en de heilige martelaren verzoenden door het kostbaar bloed dat uit hun nek stroomde, smeken en vragen wij, schenk ons, onze Heer en onze God, dat we onze toevlucht mogen vinden in de kracht verborgen in hun beenderen, en mogen we geholpen worden door hun gebeden, en mogen wij met hen, onder hen, in hun gezelschappen, rond hun graven en in de glorieuze tempels gereserveerd ter ere van hun dienst, waardig worden gemaakt om te allen tijde lof, eer, belijdenis en aanbidding aan U te brengen, Heer van alles in alle eeuwigheid. --- \rr\ Amen.
+
+  \cc\ Mogen de martelaren, onze Heer en onze God, die door Uw macht en hulp de dwaling van het heidendom hebben overwonnen, vernederd en teniet gedaan, en die het ware geloof van Uw Naam hebben geprezen en verheerlijkt, U bidden, Heer, en voor ons bij Uw gerechtigheid smeken, op de grote en glorieuze dag, waarop Uw gerechtigheid wordt geopenbaard vanuit de hemel, rechtvaardige Rechter, vol genade, die overtredingen en zonden vergeeft, Heer van alles in alle eeuwigheid. --- \rr\ Amen.
+\end{halfparskip}
+
+\begin{halfparskip}
+  \liturgicalhint{[Gebeden voor hulp: zie einde]}
+
+  \liturgicalhint{[lange versie]} \liturgicalhint{Maria:} Moge het gebed, Heer, van de heilige maagd, het verzoek van de gezegende moeder, het inroepen en smeken van haar die vol genade is, de heilige, gezegende Maria, de grote kracht van het overwinnend Kruis, de goddelijke hulp, en de bede van mar Johannes de Doper, altijd met ons zijn in alle eeuwigheid, Heer van alles, Vader...
+
+  \liturgicalhint{Apostelen.} Moge het gebed, Heer, van de heilige apostelen, de bede der ware predikers, het verzoeken en smeken der triomfantelijke (of: beroemde) atleten, de predikers van gerechtigheid, de verkondigers van heiligheid, de zaaiers van vrede in de schepping, altijd met ons zijn in alle eeuwigheid, Heer van alles...
+
+  \liturgicalhint{Patroonheilige.} Moge het gebed, verzoek, smeken en vragen van onze beroemde en heilige vader, mar Thomas de gezegende apostel, van mar Adai en Mari, leraren van het Oosten, van mar Stefanus, de eerstgeborene der martelaren, van mar Simeon bar Sabae, van mar Jacob, van mar Efrem, van de krachtige reus mar Joris, de beroemde martelaar, van mar Quriaqos, van mar Pethion en mar Hormizd, van de gezegende mar Augin en van heel zijn geestelijk gezelschap, van de heilige Barbara en Shmoni en haar zonen, van Meskenta en haar twee kinderen, en van alle martelaren en heiligen van onze Heer, altijd een hoge muur en een stevig huis van toevlucht voor ons zijn, om onze lichamen en zielen te verlossen, te bevrijden, te redden en te bewaren van de Boze en zijn legers, in alle eeuwigheid, Heer van alles, Vader...
+\end{halfparskip}
+
+\noindent\rule{\textwidth}{0.5pt}
+
+\begin{halfparskip}
+  \liturgicalhint{[korte versie]} Moge het gebed, Heer, van de heilige maagd, het verzoek van de gezegende moeder, het bidden en smeken van haar die vol genade is, de gezegende vrouwe Maria, de grote kracht van het overwinnend Kruis, de goddelijke hulp, de bede van mar Johannes de Doper, het gebed der heilige apostelen, de bede der ware predikers, het verzoeken en smeken der triomfantelijke atleten, de predikers van gerechtigheid, de verkondigers van heiligheid, de zaaiers van vrede in de schepping, het smeken van onze vader, mar Thomas de gezegende apostel, van mar Adai en Mari, leraren van het Oosten, van mar Stefanus, de eerstgeborene der martelaren, van de krachtige reus mar Joris, de beroemde martelaar, van mar Quriaqos, van mar Pethion en mar Hormizd, van de gezegende mar Augin en heel zijn geestelijk gezelschap, van de heilige Barbara en Shmoni en haar zonen, van Meskenta en haar 2 kinderen, en van alle martelaren en heiligen van onze Heer, altijd een hoge muur en een stevig huis van toevlucht voor ons zijn, om onze lichamen en zielen te verlossen, te bevrijden, te redden en te bewaren van de Boze en zijn legers, in alle eeuwigheid, Heer van alles...
+
+  \liturgicalhint{Hutama.} Schenk, onze Heer en onze God, in Uw goedertierenheid, in deze ochtendtijd, redding aan de verdrukten, vrijlating aan de gevangenen, herstel aan de gekwelden, genezing aan de zieken, terugkeer aan hen die ver weg zijn, behoud aan hen die nabij zijn, vergeving aan de zondaars, aanvaarding aan de boetelingen, verheerlijking aan de rechtvaardigen, voorziening in hun behoeften aan de armen, terugvondst aan de verlorenen, terugbrengen aan hen die verdreven zijn, een goede en aanvaardbare gedachtenis voor de overledenen, barmhartigheid en mededogen aan allen die zijn geschapen en gemaakt; en schenk ons en alle mensen die dingen die ons, zwakke zondaars, zullen helpen en Uw Majesteit zullen behagen, in Uw goedertierenheid en barmhartigheid, Christus, de Hoop van onze natuur, nu, te allen tijde en voor altijd en eeuwig.
+
+  \rr\ Amen. --- \liturgicalhint{Vredekus.}
+\end{halfparskip}
+
+\noindent\rule{\textwidth}{0.5pt}
+
+\begin{halfparskip}
+  \liturgicalhint{Gebeden voor hulp bij aanwezigheid van meerdere priesters}
+
+  \cc\ Moge, Heer, de hulp van Uw barmhartigheid, de grote bijstand van Uw goedertierenheid, de verborgen en glorieuze kracht van Uw glorieuze Drie-eenheid, en Uw rechterhand vol barmhartigheid en mededogen, de zwakheid van Uw aanbidders overschaduwen en toegevoegd worden, vanuit Uw heilig huis dat vol is van alle hulp en zegeningen, Heer van alles in alle eeuwigheid. - Amen].
+
+  2. Onze Heer en God, mogen Uw dienaren gezegend worden door Uw zegen, en Uw aanbidders worden beschermd door de zorg van Uw wil; Heer, moge de voortdurende vrede van Uw goddelijkheid en de blijvende vrede van Uw Goddelijkheid heersen over Uw volk en in Uw Kerk, alle dagen van de wereld, Heer van alle, Vader...
+
+  3. Moge de zegen van Hem die alles zegent, de vrede van Hem die alles tot bedaren brengt, de genade van Hem die iedereen genadig is, de bescherming van onze aanbiddelijke God, met ons, onder ons en rondom ons zijn en ons beschermen van de boze en van zijn krachten altijd en in eeuwigheid, Heer van alles, Vader...
+
+  4. Onze Heer en onze God, moge wij gezegend zijn door Uw zegen, mogen wij beschermd worden door Uw voorzienigheid, moge Uw kracht ons ondersteunen, moge Uw hulp ons vergezellen, moge Uw rechterhand ons overschaduwen, moge Uw vrede heersen onder ons, moge Uw Kruis een hoge vesting (\emph{of}: muur) en toevlucht voor ons zijn en mogen wij onder zijn vleugels worden verdedigd tegen de boze en zijn legers, altijd en in eeuwigheid, Heer van alles, Vader...
+
+  5. Heer, gezegend is de genade van Uw goedheid, aanbiddelijk zijn de beloften van Uw Heerlijkheid, die ons leren om altijd naar U te kijken en in U te roemen. Laat onze hoop niet van U gescheiden worden alle dagen van ons leven, Heer van alles, Vader...
+
+  6. Onze Heer en God, moge Uw zegen rusten op Uw volk, en moge Uw genade voortdurend op ons, zwakke zondaars zijn; onze goede Hoop, onze barmhartige Toevlucht en Vergever van schulden en zonden, Heer van alles, Vader...
+
+  7. Moge de vrede van de Vader met ons zijn, en de liefde van de Zoon onder ons, en moge de Heilige Geest ons leiden volgens Zijn wil, en mogen Zijn barmhartigheid en medeleven altijd en in eeuwigheid op ons zijn, Heer van alles, Vader...
+
+  8. Heer, moge Uw vrede in ons wonen en Uw rust in ons heersen, en moge Uw liefde onder ons toenemen alle dagen van ons leven, Heer van alles, Vader ...
+
+  9. Heer, bescherm ons door Uw rechterhand, verdedig ons onder Uw vleugels en laat Uw hulp ons alle dagen van ons leven vergezellen, Heer van alles, Vader...
+
+  10. Heer, geef ons Uw voortdurende vrede, liefde, liefde voor kennis, leven, geluk en vreugde, en laat Uw zorg over op geen enkele dag van ons leven ontbreken, Heer van alles, Vader ...
+
+  11. Wees een slapeloze Bewaker van het bolwerk waarin Uw schapen wonen, opdat ze niet worden gekwetst door de wolven die dorsten naar het bloed van Uw kudde, want U bent de zee die niet zal afnemen, Heer van alles, Vader...
+
+  12. Heer, zegen ons met Uw zegeningen, omring ons met de vesting (\emph{of}: muur) van Uw zorg, beroof ons niet van het goede en laat ons aan tafel liggen in Uw stralend bruidsfeest, Heer van alles, Vader.. .
+
+  13. Heer, kom ons te hulp in Uw barmhartigheid, openbaar onze verlossing in Uw mededogen, en leid onze stappen op de paden van gerechtigheid alle dagen van ons leven, Heer van alles, Vader ...
+
+  14. Heer, laat Uw goedheid tot ons doordringen wanneer Uw gerechtigheid ons oordeelt, en laat Uw genade ons te hulp komen op de dag waarop Uw Majesteit zal verschijnen, Heer van alles, Vader ...
+
+  15. Heer van alle, laat Uw zegen en Uw genade, Uw rechterhand vol barmhartigheid en mededogen, overschaduwen en begeleiden de gemeenschappen van Uw aanbidders die U te altijd aanroepen en smeken, Heer van alles, Vader ...
+\end{halfparskip}
+\end{document}
