@@ -40,37 +40,57 @@
 \definecolor{blood-red}{RGB}{102,0,0}
 
 \newcommand{\crs}{{\color{BrickRed} \maltese}}
-\newcommand{\cc}{{\color{BrickRed} \textbf{C.}}}
-\newcommand{\dd}{{\color{BrickRed} \textbf{D.}}}
-\newcommand{\vv}{{\color{BrickRed} \textbf{V.}}}
-\newcommand{\rr}{{\color{BrickRed} \textbf{R.}}}
-\newcommand{\NN}{{\color{BrickRed} \textbf{N.}}}
+\newcommand{\cc}{{\color{BrickRed} \emph{C.}}}
+\newcommand{\dd}{{\color{BrickRed} \emph{D.}}}
+\newcommand{\vv}{{\color{BrickRed} \emph{V.}}}
+\newcommand{\rr}{{\color{BrickRed} \emph{R.}}}
+\newcommand{\NN}{{\color{BrickRed} \emph{N.}}}
 \newcommand{\sep}{{\color{BrickRed} \textbf{$\star$}}}
 
-\newcommand{\liturgicalhint}[1]{{\color{BrickRed}\footnotesize\itshape{#1}}}
+\newcommand{\liturgicalhint}[1]{{\color{BrickRed}\emph{#1}}}
 \newcommand{\liturgicaloption}[1]{{\color{BrickRed}\textbf{#1}}}
-\newcommand{\qanona}[1]{{\liturgicalhint{Qanona.}} \emph{#1}}
-\newcommand{\psalm}[1]{\liturgicaloption{Psalm #1.}}
+\newcommand{\qanona}[1]{{\liturgicalhint{Qanona.}} #1}
+\newcommand{\psalm}[1]{{\color{BrickRed} \emph{#1}.}}
 
 \newenvironment{doublecols}{%
-  % \vspace{\parskip}%
+  \vspace{\parskip}%
+  \setlength{\parskip}{0.0em}%
   \begin{paracol}{2}%
-    % \vspace{-\parskip}%
     % \setlength{\columnseprule}{0.4pt}%
     \setlength{\columnsep}{1.5em}%
 }{%
   \end{paracol}%
+  \setlength{\parskip}{\origparskip}%
 }
 
 \newenvironment{triplecols}{%
-  % \vspace{\parskip}%
+  \vspace{\parskip}%
+  \setlength{\parskip}{0.0em}%
   \begin{paracol}{3}%
     % \vspace{-\parskip}%
     % \setlength{\columnseprule}{0.4pt}%
     \setlength{\columnsep}{1.5em}%
 }{%
   \end{paracol}%
+  \setlength{\parskip}{\origparskip}%
 }
+
+\newenvironment{doublecolsong}{%
+  \vspace{\parskip}%
+  \emergencystretch=-1em%
+  \begin{small}%
+  % \fontsize{8.8}{10.8}\selectfont
+  \setlength{\parskip}{0.0em}%
+  \begin{multicols}{2}%
+}{%
+  \end{multicols}%
+  \setlength{\parskip}{\origparskip}%
+  \emergencystretch=0em%
+  \end{small}%
+}
+
+\newcommand{\songline}[1]{\begin{minipage}{\linewidth}#1\end{minipage}}
+\newcommand{\songlinein}[1]{\hspace{0.5em}\songline{#1}}
 
 \newcommand{\englishl}{\switchcolumn[0]*\selectlanguage{english}}%
 \newcommand{\englishc}[1]{\switchcolumn[#1]\selectlanguage{english}}%
