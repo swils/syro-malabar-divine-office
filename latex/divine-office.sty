@@ -56,7 +56,7 @@
   \vspace{\parskip}%
   \setlength{\parskip}{0.0em}%
   \begin{paracol}{2}%
-    % \setlength{\columnseprule}{0.4pt}%
+    \setlength{\columnseprule}{0.3pt}%
     \setlength{\columnsep}{1.5em}%
 }{%
   \end{paracol}%
@@ -65,23 +65,29 @@
 
 \newenvironment{triplecols}{%
   \vspace{\parskip}%
+  \begin{small}%
   \setlength{\parskip}{0.0em}%
   \begin{paracol}{3}%
     % \vspace{-\parskip}%
-    % \setlength{\columnseprule}{0.4pt}%
+    \setlength{\columnseprule}{0.3pt}%
     \setlength{\columnsep}{1.5em}%
 }{%
   \end{paracol}%
   \setlength{\parskip}{\origparskip}%
+  \end{small}%
 }
 
+\newcommand{\englishl}{\switchcolumn[0]*\selectlanguage{english}}%
+\newcommand{\englishc}[1]{\switchcolumn[#1]\selectlanguage{english}}%
+\newcommand{\dutchl}{\switchcolumn[0]*\selectlanguage{dutch}}%
+\newcommand{\dutchc}[1]{\switchcolumn[#1]\selectlanguage{dutch}}%
+
 \newenvironment{doublecolsong}{%
-  \vspace{\parskip}%
   \emergencystretch=-1em%
   \begin{small}%
-  % \fontsize{8.8}{10.8}\selectfont
   \setlength{\parskip}{0.0em}%
   \begin{multicols}{2}%
+    \setlength{\columnseprule}{0.3pt}%
 }{%
   \end{multicols}%
   \setlength{\parskip}{\origparskip}%
@@ -89,13 +95,10 @@
   \end{small}%
 }
 
+\newcommand{\songindent}{\hspace{0.5em}}
 \newcommand{\songline}[1]{\begin{minipage}{\linewidth}#1\end{minipage}}
-\newcommand{\songlinein}[1]{\hspace{0.5em}\songline{#1}}
+\newcommand{\songlinein}[1]{\songindent\songline{#1}}
 
-\newcommand{\englishl}{\switchcolumn[0]*\selectlanguage{english}}%
-\newcommand{\englishc}[1]{\switchcolumn[#1]\selectlanguage{english}}%
-\newcommand{\dutchl}{\switchcolumn[0]*\selectlanguage{dutch}}%
-\newcommand{\dutchc}[1]{\switchcolumn[#1]\selectlanguage{dutch}}%
 
 \newcommand{\markedsection}[1]{\section*{#1}\markboth{#1}{}}
 \newcommand{\markedday}[1]{%
