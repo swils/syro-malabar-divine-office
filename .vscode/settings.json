@@ -1,0 +1,26 @@
+{
+  "files.exclude": {
+    "**/_opam": true,
+    "**/node_modules": true,
+    "**/.Makefile.coq.d": true,
+    "**/Makefile.coq": true,
+    "**/Makefile.coq.conf": true,
+    "**/*.aux": true,
+    "**/*.fdb_latexmk": true,
+    "**/*.fls": true,
+    "**/*.glob": true,
+    "**/*.log": true,
+    "**/*.nav": true,
+    "**/*.out": true,
+    "**/*.snm": true,
+    "**/*.synctex*": true,
+    "**/*.toc*": true,
+    "**/*.xdv*": true,
+    "**/~$*.odt": true,
+  },
+  "cSpell.words": [
+  ],
+  // "PandocCiter.DefaultBib": "synced/assets/bib/papers.bib",
+  // "PandocCiter.ShowLog": true,
+  // "pandoc.pdfOptString": "--pdf-engine=xelatex"
+}

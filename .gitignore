@@ -7,5 +7,5 @@
 **/*.synctex*
 **/*.toc
 **/*.xdv
-
-./*.odt
+**/*.docx
+**/*.odt
