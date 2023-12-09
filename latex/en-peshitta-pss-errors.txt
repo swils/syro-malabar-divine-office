@@ -1,2 +1,5 @@
 * Psalm 4: Who will show us the good One (no closing quote)
 * Psalm 11: Flee and dwell upon the mountains like a bird (no closing quote)
+* Psalm 11: bow-string (dash?)
+* Psalm 23: The Lord will feed (or: herd) me; * He will not let me lack any-
+thing. (star or linebreak?)
