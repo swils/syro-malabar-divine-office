@@ -16,6 +16,7 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{ifthen}
 \usepackage{fancyhdr}
+\usepackage{mdframed}
 
 % Redefine title to be all caps
 \let\oldtitle\title
@@ -43,6 +44,7 @@
 
 \definecolor{dark-gray}{gray}{0.50}
 \definecolor{blood-red}{RGB}{102,0,0}
+\definecolor{BrickRed50}{rgb}{0.9, 0.625, 0.665}
 
 \newcommand{\crs}{{\color{BrickRed} \maltese}}
 \newcommand{\cc}{{\color{BrickRed} \emph{C.}}}
@@ -108,6 +110,10 @@
   \liturgicaloption{#1}%
   \markright{#1}%
 }
+\newcommand{\markedsunday}[2]{%
+  \liturgicaloption{#1:} \liturgicalhint{#2}%
+  \markright{#1}%
+}
 
 \pagestyle{fancy}
 \fancyhf{} % clear all fields
@@ -120,6 +126,7 @@
 \newcommand{\scripture}[1]{\emph{#1.}}
 \newcommand{\psalm}[1]{{\color{BrickRed} \emph{#1}.}}
 \newcommand{\Psalm}[1]{{\color{BrickRed} \textbf{\emph{#1}.}}}
+\newcommand{\acrosticletter}[1]{\emph{#1}.}
 
 \newcommand{\enbriefglory}{\liturgicalhint{Glory.}}
 \newcommand{\enbrieffrom}{\liturgicalhint{From.}}
@@ -128,3 +135,20 @@
 \newcommand{\translationoption}[1]{\emph{or:} #1}
 \newcommand{\translationliteral}[1]{\emph{lit.} #1}
 \newcommand{\translationLiteral}[1]{\emph{Lit.} #1}
+
+\newmdenv[
+    topline=false,
+    bottomline=false,
+    rightline=false,
+    linecolor=BrickRed50,
+    linewidth=2pt,
+    innertopmargin=0pt,
+    innerbottommargin=0pt,
+    innerrightmargin=0pt,
+    innerleftmargin=10pt,
+    skipabove=\baselineskip,
+    skipbelow=\baselineskip,
+    leftmargin=-10pt,
+    rightmargin=0pt,
+    footnoteinside=false
+]{liturgicalgrouping}
