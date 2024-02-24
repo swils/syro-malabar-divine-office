@@ -105,19 +105,22 @@
 \newcommand{\songline}[1]{\begin{minipage}{\linewidth}#1\end{minipage}}
 \newcommand{\songlinein}[1]{\songindent\songline{#1}}
 
+% All marked things would cause marking in footer/header. Use them for
+% sections and days that would need to show up there.
 \newcommand{\markedsection}[1]{\section*{#1}\markboth{#1}{}}
-\newcommand{\markedDay}[1]{\subsection*{\color{BrickRed}#1}\markright{#1}}
+% Could get rid of this \markeddaysubsection?
+\newcommand{\markeddaysubsection}[1]{\subsection*{\color{BrickRed}#1}\markright{#1}}
 \newcommand{\markedday}[1]{%
   \liturgicaloption{#1}%
   \markright{#1}%
 }
 % Could get rid of this? Or generalize it?
-\newcommand{\markedsunday}[2]{%
+\newcommand{\markeddaywithhint}[2]{%
   \liturgicaloption{#1:} \liturgicalhint{#2}%
   \markright{#1}%
 }
 % Could get rid of this? Or generalize it?
-\newcommand{\markedsundayAll}[2]{\markedsunday{$\ast$\ #1}{#2}}
+\newcommand{\markeddaywithhintAst}[2]{\markeddaywithhint{$\ast$\ #1}{#2}}
 
 \pagestyle{fancy}
 \fancyhf{} % clear all fields
