@@ -17,6 +17,7 @@
 \usepackage{ifthen}
 \usepackage{fancyhdr}
 \usepackage{mdframed}
+\usepackage[stable]{footmisc}
 
 % Redefine title to be all caps
 \let\oldtitle\title
@@ -110,10 +111,13 @@
   \liturgicaloption{#1}%
   \markright{#1}%
 }
+% Could get rid of this? Or generalize it?
 \newcommand{\markedsunday}[2]{%
   \liturgicaloption{#1:} \liturgicalhint{#2}%
   \markright{#1}%
 }
+% Could get rid of this? Or generalize it?
+\newcommand{\markedsundayAll}[2]{\markedsunday{$\ast$\ #1}{#2}}
 
 \pagestyle{fancy}
 \fancyhf{} % clear all fields
@@ -123,6 +127,7 @@
 
 \newcommand{\qanona}[1]{{\liturgicalhint{Qanona.} \emph{#1}}}
 \newcommand{\slota}[1]{\liturgicalhint{Slota.} #1}
+\newcommand{\Slota}[1]{\liturgicalhint{\textbf{Slota.}} #1}
 \newcommand{\scripture}[1]{\emph{#1.}}
 \newcommand{\psalm}[1]{{\color{BrickRed} \emph{#1}.}}
 \newcommand{\Psalm}[1]{{\color{BrickRed} \textbf{\emph{#1}.}}}
