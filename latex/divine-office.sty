@@ -18,6 +18,7 @@
 \usepackage{fancyhdr}
 \usepackage{mdframed}
 \usepackage[stable]{footmisc}
+\usepackage{titling}
 
 % Redefine title to be all caps
 \let\oldtitle\title
@@ -104,6 +105,10 @@
 \newcommand{\songindent}{\hspace{0.5em}}
 \newcommand{\songline}[1]{\begin{minipage}{\linewidth}#1\end{minipage}}
 \newcommand{\songlinein}[1]{\songindent\songline{#1}}
+
+\newcommand{\inlinemaketitle}{{\let\newpage\relax\vspace{1em}\maketitle\vspace{-1em}}}
+% \let\oldmaketitle\maketitle
+% \renewcommand{\maketitle}{{\let\newpage\relax\oldmaketitle\vspace{-7em}}}
 
 % All marked things would cause marking in footer/header. Use them for
 % sections and days that would need to show up there.
