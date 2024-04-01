@@ -131,8 +131,9 @@
 \newcommand{\hulala}[1]{\section*{HULALA {#1}}}
 \newcommand{\marmita}[1]{\subsection*{MARMITA {#1}}\nopagebreak}
 \newcommand{\PSALM}[1]{\textbf{PSALM {#1}}\nopagebreak}
-\newcommand{\PSALMtitle}[2]{\textbf{PSALM {#1}.} \textbf{\uppercase{#2}}\nopagebreak}
-\newcommand{\psalmsubtitle}[1]{\emph{#1}\nopagebreak}
+% \newcommand{\PSALMtitle}[2]{\textbf{PSALM {#1}.} \textbf{\uppercase{#2}}\nopagebreak}
+\newcommand{\PSALMtitle}[2]{\subsubsection*{#1. #2} \nopagebreak}
+\newcommand{\psalmsubtitle}[1]{{\emph{#1}}\nopagebreak}
 
 \pagestyle{fancy}
 \fancyhf{} % clear all fields
