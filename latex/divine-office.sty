@@ -19,6 +19,7 @@
 \usepackage{mdframed}
 \usepackage[stable]{footmisc}
 \usepackage{titling}
+\usepackage{needspace}
 
 % Redefine title to be all caps
 \let\oldtitle\title
@@ -128,12 +129,13 @@
 \newcommand{\markeddaywithhintAst}[2]{\markeddaywithhint{$\ast$\ #1}{#2}}
 
 % Psalter related stuff.
-\newcommand{\hulala}[1]{\section*{HULALA {#1}}}
+\newcommand{\hulala}[1]{\needspace{2\baselineskip}\section*{HULALA {#1}}\nopagebreak}
 \newcommand{\marmita}[1]{\subsection*{MARMITA {#1}}\nopagebreak}
 \newcommand{\PSALM}[1]{\textbf{PSALM {#1}}\nopagebreak}
 % \newcommand{\PSALMtitle}[2]{\textbf{PSALM {#1}.} \textbf{\uppercase{#2}}\nopagebreak}
 \newcommand{\PSALMtitle}[2]{\subsubsection*{#1. #2} \nopagebreak}
 \newcommand{\psalmsubtitle}[1]{{\emph{#1}}\nopagebreak}
+\newcommand{\SCRIPTUREtitle}[1]{\subsubsection*{#1} \nopagebreak}
 
 \pagestyle{fancy}
 \fancyhf{} % clear all fields
@@ -158,7 +160,7 @@
 \newcommand{\enrepeatfirstverse}[1]{{\liturgicalhint{First verse:}} #1}
 
 \newcommand{\translationoption}[1]{\emph{or:} #1}
-\newcommand{\translationoptionNl}[1]{\emph{of:} #1}
+\newcommand{\translationoptionNl}[1]{\liturgicalhint{of:} #1}
 \newcommand{\translationliteral}[1]{\emph{lit.} #1}
 \newcommand{\translationLiteral}[1]{\emph{Lit.} #1}
 
