@@ -20,6 +20,7 @@
 \usepackage[stable]{footmisc}
 \usepackage{titling}
 \usepackage{needspace}
+\usepackage{titlesec}
 
 % Redefine title to be all caps
 \let\oldtitle\title
@@ -30,10 +31,10 @@
 % constraints on paracol. We get away with this, because the booklet will be
 % printed on A5 paper.
 \sloppy
+
 % Store the original parskip value
 \newlength{\origparskip}
 \setlength{\origparskip}{\parskip}
-
 % Define a new environment to reduce parskip
 \newenvironment{halfparskip}{%
   \setlength{\parskip}{0.5\origparskip}%
@@ -136,6 +137,7 @@
 \newcommand{\PSALMtitle}[2]{\subsubsection*{#1. #2} \nopagebreak}
 \newcommand{\psalmsubtitle}[1]{{\emph{#1}}\nopagebreak}
 \newcommand{\SCRIPTUREtitle}[1]{\subsubsection*{#1} \nopagebreak}
+\newcommand{\psalmverse}[1]{#1}
 
 \pagestyle{fancy}
 \fancyhf{} % clear all fields
