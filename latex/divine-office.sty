@@ -20,7 +20,6 @@
 \usepackage[stable]{footmisc}
 \usepackage{titling}
 \usepackage{needspace}
-\usepackage{titlesec}
 
 % Redefine title to be all caps
 \let\oldtitle\title
@@ -130,7 +129,8 @@
 \newcommand{\markeddaywithhintAst}[2]{\markeddaywithhint{$\ast$\ #1}{#2}}
 
 % Psalter related stuff.
-\newcommand{\hulala}[1]{\needspace{2\baselineskip}\section*{HULALA {#1}}\nopagebreak}
+% \newcommand{\hulala}[1]{\needspace{2\baselineskip}\section*{HULALA {#1}}\nopagebreak}
+\newcommand{\hulala}[1]{\section*{HULALA {#1}}\nopagebreak}
 \newcommand{\marmita}[1]{\subsection*{MARMITA {#1}}\nopagebreak}
 \newcommand{\PSALM}[1]{\textbf{PSALM {#1}}\nopagebreak}
 % \newcommand{\PSALMtitle}[2]{\textbf{PSALM {#1}.} \textbf{\uppercase{#2}}\nopagebreak}
