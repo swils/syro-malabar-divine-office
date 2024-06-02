@@ -57,7 +57,8 @@
 \newcommand{\sep}{{\color{BrickRed} \textbf{$\star$}}}
 
 \newcommand{\liturgicalhint}[1]{{\color{BrickRed}\emph{#1}}}
-\newcommand{\liturgicaloption}[1]{{\color{BrickRed}\textbf{#1}}}
+\newcommand{\liturgicaloption}[1]{{\color{BrickRed}{#1}}}
+\newcommand{\liturgicalOption}[1]{{\color{BrickRed}\textbf{#1}}}
 
 \newenvironment{doublecols}{%
   \vspace{\parskip}%
@@ -115,11 +116,11 @@
 \newcommand{\markedsection}[1]{\section*{#1}\markboth{#1}{}}
 % Could get rid of this \markeddaysubsection?
 \newcommand{\markeddaysubsection}[1]{\subsection*{#1}\markright{#1}}
-\newcommand{\markedday}[1]{\liturgicaloption{#1}\markright{#1}}
+\newcommand{\markedday}[1]{\liturgicalOption{#1}\markright{#1}}
 \newcommand{\markeddayAst}[1]{\markedday{$\ast$\ #1}}
 % Could get rid of this? Or generalize it?
 \newcommand{\markeddaywithhint}[2]{%
-  \liturgicaloption{#1:} \liturgicalhint{#2}%
+  \liturgicalOption{#1:} \liturgicalhint{#2}%
   \markright{#1}%
 }
 % Could get rid of this? Or generalize it?
