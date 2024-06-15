@@ -16,10 +16,9 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{ifthen}
 \usepackage{fancyhdr}
-\usepackage{mdframed}
+\usepackage{titlesec}
 \usepackage[stable]{footmisc}
 \usepackage{titling}
-\usepackage{needspace}
 
 % Redefine title to be all caps
 \let\oldtitle\title
@@ -46,22 +45,21 @@
 
 \definecolor{dark-gray}{gray}{0.50}
 \definecolor{blood-red}{RGB}{102,0,0}
-\definecolor{BrickRed50}{rgb}{0.9, 0.625, 0.665}
+\definecolor{Red50}{rgb}{0.9, 0.625, 0.665}
 
-\newcommand{\crs}{{\color{BrickRed} \maltese}}
-\newcommand{\cc}{{\color{BrickRed} \emph{C.}}}
-\newcommand{\dd}{{\color{BrickRed} \emph{D.}}}
-\newcommand{\vv}{{\color{BrickRed} \emph{V.}}}
-\newcommand{\rr}{{\color{BrickRed} \emph{R.}}}
-\newcommand{\NN}{{\color{BrickRed} \emph{N.}}}
-\newcommand{\sep}{{\color{BrickRed} \textbf{$\star$}}}
+\newcommand{\crs}{{\color{Red} \maltese}}
+\newcommand{\cc}{{\color{Red} \emph{C.}}}
+\newcommand{\dd}{{\color{Red} \emph{D.}}}
+\newcommand{\vv}{{\color{Red} \emph{V.}}}
+\newcommand{\rr}{{\color{Red} \emph{R.}}}
+\newcommand{\NN}{{\color{Red} \emph{N.}}}
+\newcommand{\sep}{{\color{Red} \textbf{$\star$}}}
 
-\newcommand{\liturgicalhint}[1]{{\color{BrickRed}\emph{#1}}}
-\newcommand{\liturgicaloption}[1]{{\color{BrickRed}{#1}}}
-\newcommand{\liturgicalOption}[1]{{\color{BrickRed}\textbf{#1}}}
+\newcommand{\liturgicalhint}[1]{{\color{Red}\emph{#1}}}
+\newcommand{\liturgicaloption}[1]{{\color{Red}{#1}}}
+\newcommand{\liturgicalOption}[1]{{\color{Red}\textbf{#1}}}
 
 \newenvironment{doublecols}{%
-  \vspace{\parskip}%
   \setlength{\parskip}{0.0em}%
   \begin{paracol}{2}%
     \setlength{\columnseprule}{0.3pt}%
@@ -91,16 +89,12 @@
 \newcommand{\dutchc}[1]{\switchcolumn[#1]\selectlanguage{dutch}}%
 
 \newenvironment{doublecolsong}{%
-  \emergencystretch=-1em%
-  \begin{small}%
   \setlength{\parskip}{0.0em}%
   \begin{multicols}{2}%
     \setlength{\columnseprule}{0.3pt}%
 }{%
   \end{multicols}%
   \setlength{\parskip}{\origparskip}%
-  \emergencystretch=0em%
-  \end{small}%
 }
 
 \newcommand{\songindent}{\hspace{0.5em}}
@@ -111,15 +105,23 @@
 \newcommand{\textsizexi}{\fontsize{11}{13}\selectfont}%
 
 \newcommand{\inlinemaketitle}{{\let\newpage\relax\vspace{1em}\maketitle\vspace{-1em}}}
-% \let\oldmaketitle\maketitle
-% \renewcommand{\maketitle}{{\let\newpage\relax\oldmaketitle\vspace{-7em}}}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% The following requires titlesec.
+\titleformat*{\section}{\large\bfseries}
+\titlespacing*{\section}{0pt}{1.5ex plus 0ex minus 0ex}{1.0ex plus 0ex minus 0ex}
+% \titlespacing*{\section}{0pt}{1.5ex}{1.0ex}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titlespacing*{\subsection}{0pt}{1.25ex}{1.0ex}
+\titlespacing*{\subsubsection}{0pt}{3.25ex}{1.5ex}
 
 % All marked things would cause marking in footer/header. Use them for
 % sections and days that would need to show up there.
-\newcommand{\markedsection}[1]{\section*{#1}\markboth{#1}{}}
+\newcommand{\markedsection}[1]{\section*{#1}}
 \newcommand{\markedsectionhint}[1]{{\fontsize{12}{13}\selectfont \liturgicalhint{#1}}}
-\newcommand{\markedsubsection}[1]{\subsection*{#1}\markright{#1}}
-\newcommand{\markedday}[1]{\liturgicalOption{#1}\markright{#1}}
+\newcommand{\markedsubsection}[1]{\subsection*{#1}}
+\newcommand{\markedday}[1]{\liturgicalOption{#1}}
 \newcommand{\markeddayAst}[1]{\markedday{$\ast$\ #1}}
 % Could get rid of this? Or generalize it?
 \newcommand{\markeddaywithhint}[2]{%
@@ -129,12 +131,14 @@
 % Could get rid of this? Or generalize it?
 \newcommand{\markeddaywithhintAst}[2]{\markeddaywithhint{$\ast$\ #1}{#2}}
 
+\raggedbottom
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
 % Psalter related stuff.
-% \newcommand{\hulala}[1]{\needspace{2\baselineskip}\section*{HULALA {#1}}\nopagebreak}
 \newcommand{\hulala}[1]{\section*{HULALA {#1}}\nopagebreak}
 \newcommand{\marmita}[1]{\subsection*{MARMITA {#1}}\nopagebreak}
 \newcommand{\PSALM}[1]{\textbf{PSALM {#1}}\nopagebreak}
-% \newcommand{\PSALMtitle}[2]{\textbf{PSALM {#1}.} \textbf{\uppercase{#2}}\nopagebreak}
 \newcommand{\PSALMtitle}[2]{\subsubsection*{#1. #2} \nopagebreak}
 \newcommand{\psalmsubtitle}[1]{{\emph{#1}}\nopagebreak}
 \newcommand{\SCRIPTUREtitle}[1]{\subsubsection*{#1} \nopagebreak}
@@ -152,10 +156,10 @@
 \newcommand{\qanona}[1]{{\liturgicalhint{Qanona.} \emph{#1}}}
 \newcommand{\slota}[1]{\liturgicalhint{Slota.} #1}
 \newcommand{\Slota}[1]{\liturgicalhint{\textbf{Slota.}} #1}
-\newcommand{\scripture}[1]{{\color{BrickRed} \emph{#1}.}}
-\newcommand{\Scripture}[1]{{\color{BrickRed} \textbf{\emph{#1}.}}}
-\newcommand{\psalm}[1]{{\color{BrickRed} \emph{#1}.}}
-\newcommand{\Psalm}[1]{{\color{BrickRed} \textbf{\emph{#1}.}}}
+\newcommand{\scripture}[1]{{\color{Red} \emph{#1}.}}
+\newcommand{\Scripture}[1]{{\color{Red} \textbf{\emph{#1}.}}}
+\newcommand{\psalm}[1]{{\color{Red} \emph{#1}.}}
+\newcommand{\Psalm}[1]{{\color{Red} \textbf{\emph{#1}.}}}
 \newcommand{\acrosticletter}[1]{\emph{#1}.}
 
 \newcommand{\enbriefglory}{\liturgicalhint{Glory.}}
@@ -170,25 +174,10 @@
 % \newcommand{\fullline}{\noindent\rule{\textwidth}{0.4pt}}%
 \newcommand{\fullline}{{%
   \nointerlineskip%
-  \setlength{\parskip}{0.4\origparskip}%
+  % \setlength{\parskip}{0.2\origparskip}%
+  \vspace{0.4\origparskip}
   \color{gray}%
   \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}\par%
+  \vspace{0.4\origparskip}
   \nointerlineskip%%
 }}%
-
-\newmdenv[
-    topline=false,
-    bottomline=false,
-    rightline=false,
-    linecolor=BrickRed50,
-    linewidth=2pt,
-    innertopmargin=0pt,
-    innerbottommargin=0pt,
-    innerrightmargin=0pt,
-    innerleftmargin=10pt,
-    skipabove=\baselineskip,
-    skipbelow=\baselineskip,
-    leftmargin=-10pt,
-    rightmargin=0pt,
-    footnoteinside=false
-]{liturgicalgrouping}
