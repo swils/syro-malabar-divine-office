@@ -9,7 +9,7 @@
 % \usepackage{amsfonts}
 % \usepackage{float}
 \usepackage[utf8]{inputenc}
-\usepackage[margin=0.5in,includefoot]{geometry}
+\usepackage[margin=0.5in,inner=0.6in,outer=0.4in,includefoot]{geometry}
 % \usepackage{mathtools}
 \usepackage{paracol}
 \usepackage[parfill]{parskip}
@@ -107,6 +107,9 @@
 \newcommand{\songline}[1]{\begin{minipage}{\linewidth}#1\end{minipage}}
 \newcommand{\songlinein}[1]{\songindent\songline{#1}}
 
+\newcommand{\textsizex}{\fontsize{10}{12}\selectfont}%
+\newcommand{\textsizexi}{\fontsize{11}{13}\selectfont}%
+
 \newcommand{\inlinemaketitle}{{\let\newpage\relax\vspace{1em}\maketitle\vspace{-1em}}}
 % \let\oldmaketitle\maketitle
 % \renewcommand{\maketitle}{{\let\newpage\relax\oldmaketitle\vspace{-7em}}}
@@ -163,6 +166,15 @@
 \newcommand{\translationoptionNl}[1]{\liturgicalhint{of:} #1}
 \newcommand{\translationliteral}[1]{\liturgicalhint{lit.} #1}
 \newcommand{\translationLiteral}[1]{\liturgicalhint{Lit.} #1}
+
+% \newcommand{\fullline}{\noindent\rule{\textwidth}{0.4pt}}%
+\newcommand{\fullline}{{%
+  \nointerlineskip%
+  \setlength{\parskip}{0.4\origparskip}%
+  \color{gray}%
+  \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}\par%
+  \nointerlineskip%%
+}}%
 
 \newmdenv[
     topline=false,
