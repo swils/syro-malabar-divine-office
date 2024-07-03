@@ -59,6 +59,17 @@
 \newcommand{\liturgicaloption}[1]{{\color{Red}{#1}}}
 \newcommand{\liturgicalOption}[1]{{\color{Red}\textbf{#1}}}
 
+\newcommand{\liturgicallbracket}{\liturgicaloption{[}}
+\newcommand{\liturgicalLbracket}{\liturgicalOption{[}}
+\newcommand{\liturgicalrbracket}{\liturgicaloption{]}}
+\newcommand{\liturgicalRbracket}{\liturgicalOption{]}}
+
+\newcommand{\optionalindentedpar}[1]{
+  \hangindent=1.0em
+  \hangafter=0
+  \liturgicalLbracket#1\liturgicalRbracket
+}
+
 \newenvironment{doublecols}{%
   \setlength{\parskip}{0.0em}%
   \begin{paracol}{2}%
