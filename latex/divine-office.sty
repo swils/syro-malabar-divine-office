@@ -1,16 +1,7 @@
-
 % https://tex.stackexchange.com/questions/769/how-can-i-create-documents-in-latex-using-a-calligraphic-first-letter-for-chapte
 % \usepackage{yfonts}
-
-% \usepackage{fontspec}
-% \setmainfont{ElstobD}
-
-% \usepackage{afterpage}
-% \usepackage{amsfonts}
-% \usepackage{float}
 \usepackage[utf8]{inputenc}
 \usepackage[margin=0.5in,inner=0.6in,outer=0.4in,includefoot]{geometry}
-% \usepackage{mathtools}
 \usepackage{paracol}
 \usepackage[parfill]{parskip}
 \usepackage[dvipsnames]{xcolor}
@@ -194,3 +185,10 @@
   \vspace{0.4\origparskip}
   \nointerlineskip%%
 }}%
+
+% More variations...
+\newenvironment{sfpar}{%
+  \sffamily\small%
+}{%
+  \rmfamily\normalsize%
+}
