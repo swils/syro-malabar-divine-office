@@ -39,17 +39,20 @@
 \definecolor{blood-red}{RGB}{102,0,0}
 \definecolor{Red50}{rgb}{0.9, 0.625, 0.665}
 
-\newcommand{\crs}{{\color{Red} \maltese}}
-\newcommand{\cc}{{\color{Red} \emph{C.}}}
-\newcommand{\dd}{{\color{Red} \emph{D.}}}
-\newcommand{\vv}{{\color{Red} \emph{V.}}}
-\newcommand{\rr}{{\color{Red} \emph{R.}}}
-\newcommand{\NN}{{\color{Red} \emph{N.}}}
-\newcommand{\sep}{{\color{Red} \textbf{$\star$}}}
+\newcommand{\rubric}[1]{{\color{Red}#1}}
 
-\newcommand{\liturgicalhint}[1]{{\color{Red}\emph{#1}}}
-\newcommand{\liturgicaloption}[1]{{\color{Red}{#1}}}
-\newcommand{\liturgicalOption}[1]{{\color{Red}\textbf{#1}}}
+\newcommand{\crs}{\rubric{\maltese}}
+\newcommand{\cc}{\rubric{\emph{C.}}}
+\newcommand{\dd}{\rubric{\emph{D.}}}
+\newcommand{\vv}{\rubric{\emph{V.}}}
+\newcommand{\rr}{\rubric{\emph{R.}}}
+\newcommand{\NN}{\rubric{\emph{N.}}}
+\newcommand{\sep}{\rubric{\textbf{$\star$}}}
+
+\newcommand{\liturgicalhint}[1]{\rubric{\emph{#1}}}
+\newcommand{\liturgicaloption}[1]{\rubric{#1}}
+\newcommand{\liturgicalOption}[1]{\rubric{\textbf{#1}}}
+\newcommand{\liturgicaloptionsc}[1]{\rubric{\textsc{#1}}}
 
 \newcommand{\liturgicallbracket}{\liturgicaloption{[}}
 \newcommand{\liturgicalLbracket}{\liturgicalOption{[}}
@@ -125,7 +128,9 @@
 \newcommand{\markedsection}[1]{\section*{#1}}
 \newcommand{\markedsectionhint}[1]{{\fontsize{12}{13}\selectfont \liturgicalhint{#1}}}
 \newcommand{\markedsubsection}[1]{\subsection*{#1}}
-\newcommand{\markedday}[1]{\liturgicalOption{#1}}
+\newcommand{\markedsubsectionrubric}[1]{\subsection*{\rubric{#1}}}  % TODO: merge with markedday... but needs argument for hints
+\newcommand{\markedsubsectionrubricwithhint}[2]{\subsection*{\rubric{#1 {\textnormal{\liturgicalhint{#2}}}}}}
+\newcommand{\markedday}[1]{\liturgicalOption{#1}}  % TODO: get rid of this
 \newcommand{\markeddayAst}[1]{\markedday{$\ast$\ #1}}
 % Could get rid of this? Or generalize it?
 \newcommand{\markeddaywithhint}[2]{%
@@ -160,10 +165,10 @@
 \newcommand{\qanona}[1]{{\liturgicalhint{Qanona.} \emph{#1}}}
 \newcommand{\slota}[1]{\liturgicalhint{Slota.} #1}
 \newcommand{\Slota}[1]{\liturgicalhint{\textbf{Slota.}} #1}
-\newcommand{\scripture}[1]{{\color{Red} \emph{#1}.}}
-\newcommand{\Scripture}[1]{{\color{Red} \textbf{\emph{#1}.}}}
-\newcommand{\psalm}[1]{{\color{Red} \emph{#1}.}}
-\newcommand{\Psalm}[1]{{\color{Red} \textbf{\emph{#1}.}}}
+\newcommand{\scripture}[1]{\rubric{\emph{#1}.}}
+\newcommand{\Scripture}[1]{\rubric{\textbf{\emph{#1}.}}}
+\newcommand{\psalm}[1]{\rubric{\emph{#1}.}}
+\newcommand{\Psalm}[1]{\rubric{\textbf{\emph{#1}.}}}
 \newcommand{\acrosticletter}[1]{\emph{#1}.}
 
 \newcommand{\enbriefglory}{\liturgicalhint{Glory.}}
@@ -203,6 +208,8 @@
 \ifthenelse{\lengthtest{209mm<\paperheight} \and \lengthtest{\paperheight<211mm}}{
   \setboolean{isA5}{true}
 }{}
+
+\newcommand{\CLEARPAGEAV}{\ifthenelse{\boolean{isA5}}{\clearpage}{}}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
