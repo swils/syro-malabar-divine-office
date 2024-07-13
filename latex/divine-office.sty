@@ -10,6 +10,7 @@
 \usepackage{titlesec}
 \usepackage[stable]{footmisc}
 \usepackage{titling}
+\usepackage{printlen}
 
 % Redefine title to be all caps
 \let\oldtitle\title
@@ -192,3 +193,12 @@
 }{%
   \rmfamily\normalsize%
 }
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% Allow for code conditional on A5 papersize.
+\newboolean{isA5}
+\setboolean{isA5}{false}
+\ifthenelse{\lengthtest{209mm<\paperheight} \and \lengthtest{\paperheight<211mm}}{
+  \setboolean{isA5}{true}
+}{}
