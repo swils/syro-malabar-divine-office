@@ -100,6 +100,7 @@
   \setlength{\parskip}{\origparskip}%
 }
 
+\newcommand{\songindentv}{\vspace{0.5em}}
 \newcommand{\songindent}{\hspace{0.5em}}
 \newcommand{\songline}[1]{\begin{minipage}{\linewidth}#1\end{minipage}}
 \newcommand{\songlinein}[1]{\songindent\songline{#1}}
@@ -202,3 +203,8 @@
 \ifthenelse{\lengthtest{209mm<\paperheight} \and \lengthtest{\paperheight<211mm}}{
   \setboolean{isA5}{true}
 }{}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% Proper hyphenations.
+\hyphenation{voort-snort}
