@@ -12,6 +12,8 @@
 \usepackage[stable]{footmisc}
 \usepackage{titling}
 \usepackage{printlen}
+\usepackage{mdframed}
+\usepackage[most]{tcolorbox}
 
 % Redefine title to be all caps
 \let\oldtitle\title
@@ -196,12 +198,53 @@
   \nointerlineskip%%
 }}%
 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
 % More variations...
 \newenvironment{sfpar}{%
   \sffamily\small%
 }{%
   \rmfamily\normalsize%
 }
+
+\definecolor{exceptionalexceptionboxcolor}{RGB}{150,150,150}
+
+\mdfdefinestyle{exceptionalexception}{%
+  skipabove=1mm,%
+  skipbelow=1mm,%
+  innerleftmargin=1.5mm,%
+  innerrightmargin=1.5mm,%
+  innermargin=-1.5mm,%
+  outermargin=-1.5mm,%
+  innerbottommargin=1.5mm,%
+  innertopmargin=1.5mm,%
+  linecolor=exceptionalexceptionboxcolor,%
+  linewidth=0.5pt,%
+}
+
+% More variations...
+\newenvironment{exceptionalexception}{%
+  \begin{mdframed}[style=exceptionalexception]%
+  \sffamily\small%
+}{%
+  \rmfamily\normalsize%
+  \end{mdframed}%
+}
+
+\newtcbox{\exceptionalexceptiontcbox}[1][]{%
+  enhanced,%
+  box align=base,%
+  nobeforeafter,%
+  size=small,%
+  left=0pt,%
+  right=0pt,%
+  colback=white,%
+  sharpish corners,%
+  frame hidden,%
+  borderline={0.5pt}{0pt}{exceptionalexceptionboxcolor},%
+ #1}
+
+\newcommand{\exceptionalexceptionbox}[1]{\exceptionalexceptiontcbox{\begin{sfpar}#1\end{sfpar}}}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
