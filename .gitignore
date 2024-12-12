@@ -9,5 +9,7 @@
 **/*.xdv
 **/*.docx
 **/*.odt
+**/*.sla
+**/*.jpg
 **/*-errors.txt
 ????-??-??-documents
