@@ -99,6 +99,25 @@
 \newcommand{\dutchl}{\switchcolumn[0]*\selectlanguage{dutch}}%
 \newcommand{\dutchc}[1]{\switchcolumn[#1]\selectlanguage{dutch}}%
 
+\mdfdefinestyle{singlecolsong}{%
+  skipabove=1mm,%
+  skipbelow=1mm,%
+  innerleftmargin=1.5cm,%
+  innerrightmargin=1.5cm,%
+  innermargin=0mm,%
+  outermargin=0mm,%
+  innerbottommargin=1.5mm,%
+  innertopmargin=1.5mm,%
+  linecolor=white,%
+  linewidth=0.0pt,%
+}
+
+\newenvironment{singlecolsong}{%
+  \begin{mdframed}[style=singlecolsong]%
+}{%
+  \end{mdframed}%
+}
+
 \newenvironment{doublecolsong}{%
   \setlength{\parskip}{0.0em}%
   \begin{multicols}{2}%
