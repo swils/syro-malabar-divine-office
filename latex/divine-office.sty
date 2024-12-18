@@ -206,13 +206,13 @@
 \newcommand{\translationLiteralNl}[1]{\liturgicalhint{Letterlijk:} #1}
 
 % \newcommand{\fullline}{\noindent\rule{\textwidth}{0.4pt}}%
-\newcommand{\fullline}{{%
+\newcommand{\fullline}[2]{{%
   \nointerlineskip%
   % \setlength{\parskip}{0.2\origparskip}%
-  \vspace{0.4\origparskip}
+  \vspace{#1\origparskip}
   \color{gray}%
   \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}\par%
-  \vspace{0.4\origparskip}
+  \vspace{#2\origparskip}
   \nointerlineskip%%
 }}%
 
